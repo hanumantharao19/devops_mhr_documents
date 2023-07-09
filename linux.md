@@ -61,15 +61,10 @@ owner  group  others    owner  group
  6     4      4 
 
 
- drwx   r-x    r-x. 2     root root 57 May 28 05:13 hanu
+drwx   r-x    r-x. 2     root root 57 May 28 05:13 hanu
 owner  group   others     owner  group 
  421   401    401
  7     5       5
-
-
-
-
-
 
 644 # default permission for the file
 755 # default permission for the directory
@@ -95,42 +90,23 @@ chown username:groupname  directory   # it used to change own of the ramesh dire
 Ex: chown hanu:hanu  ramesh
 chown -R hanu:hanu remesh  #  it used to change own of the ramesh directory and sub directories as well
 
-
- -  yum install vim
- -  netstat -ntlp
- -  yum install net-tools
-  - yum list httpd
-  -  yum list net-tools
-  -  yum install httpd
-  -   yum list httpd
-  -  yum remove httpd
-  -   yum install httpd
-  -  systemctl start httpd
-  -  systemctl status httpd
-  -  systemctl restart httpd
-  -  cd /var/log/httpd/
-  -  ls -lrt
-  -   cat access_log
-  -   cd /var/www/html/
-  -   pwd
-  -   ls -lrt
-  -  vim index.html
-  -   cd /var/www/html/
-  -  /var/log/httpd/
-  -  ls -lrt
-  -   cat access_log
-  -   tail -5 access_log
-  -  tail -2 access_log
-  -  head -10 access_log
-  -  tail -f access_log
-  - tail -f access_log
-  -  ls -lrt
-  - vim access_log
-  -  top
-  - ps -aux
-  -  history
-  - ps -ef | grep httpd
-  - kill -9 processid
+# importent linux command and thier useage
+ -  yum install vim   # to install vim software
+ -  yum install net-tools # to install net-tools for getting access network related commands
+ -  yum list httpd  # it is used to know httpd is installed or not
+ -  yum install httpd # it is used to install httpd 
+ -  yum remove httpd # it is used to remove the httpd package
+ -  systemctl start httpd  # it is used to start the httpd service
+ -  systemctl status httpd  # it is used to know the status of the httpd
+ -  systemctl restart httpd  # it is used to restart the httpd service
+ -  /var/log/httpd/  # it is default location to store the httpd logs
+ -  /var/www/html/ # it is default directory for web the server
+ -  tail -5 access_log  # it used to list the last five line of the access_log
+ -  tail -f access_log  # it is used to check the running logs
+ -  ps -aux  # to list the all process in the server
+ -  ps -ef | grep httpd  # it is used to find the process id of the httpd service
+ -  kill -9 processid  # it is used to kill the process
+ -  netstat -ntlp  # it used to know the what are the ports are running the server
 
 
 
