@@ -99,7 +99,7 @@ chown -R hanu:hanu remesh  #  it used to change own of the ramesh directory and 
  -  yum install vim
  -  netstat -ntlp
  -  yum install net-tools
-- yum list httpd
+  - yum list httpd
   -  yum list net-tools
   -  yum install httpd
   -   yum list httpd
@@ -129,9 +129,8 @@ chown -R hanu:hanu remesh  #  it used to change own of the ramesh directory and 
   -  top
   - ps -aux
   -  history
-
-
-  279  yum install httpd
+  - ps -ef | grep httpd
+  - kill -9 processid
 
 
 
