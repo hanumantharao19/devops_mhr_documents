@@ -96,5 +96,42 @@ Ex: chown hanu:hanu  ramesh
 chown -R hanu:hanu remesh  #  it used to change own of the ramesh directory and sub directories as well
 
 
+ -  yum install vim
+ -  netstat -ntlp
+ -  yum install net-tools
+- yum list httpd
+  -  yum list net-tools
+  -  yum install httpd
+  -   yum list httpd
+  -  yum remove httpd
+  -   yum install httpd
+  -  systemctl start httpd
+  -  systemctl status httpd
+  -  systemctl restart httpd
+  -  cd /var/log/httpd/
+  -  ls -lrt
+  -   cat access_log
+  -   cd /var/www/html/
+  -   pwd
+  -   ls -lrt
+  -  vim index.html
+  -   cd /var/www/html/
+  -  /var/log/httpd/
+  -  ls -lrt
+  -   cat access_log
+  -   tail -5 access_log
+  -  tail -2 access_log
+  -  head -10 access_log
+  -  tail -f access_log
+  - tail -f access_log
+  -  ls -lrt
+  - vim access_log
+  -  top
+  - ps -aux
+  -  history
+
+
+  279  yum install httpd
+
 
 
