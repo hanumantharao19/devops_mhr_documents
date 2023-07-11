@@ -52,6 +52,39 @@ read name
 echo "$name directory going to create"
 mkdir $name
 ```
+## script6 (write script to prinit the system variables)
+```
+#!/bin/bash
+echo my shell name is $BASH
+echo my shell version name is $BASH_VERSION
+echo present working directory is $PWD
+echo my home directory is $HOME
+```
+## script7 (Add two numbers)
+```
+#!/bin/bash
+
+num1=20
+num2=30
+
+result=$((num1+num2))
+echo $result
+
+result2=$( expr $num1 + $num2 )
+echo $result2
+```
+## script 8(find the which greater)
+```
+#!/bin/bash
+a=50
+b=40
+if [ $a -gt $b ]
+  then
+	  echo " number a is greter than number b"
+  else
+	  echo " number a is less then number b"
+fi
+```
 
 
 
