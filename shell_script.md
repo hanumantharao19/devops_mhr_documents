@@ -18,10 +18,11 @@ script1
 script2
 -----
 #!/bin/bash
-date
+```date
 mkdir ramesh
 cd ramesh
 touch text{1..100}.txt
+```
 
 script3( how to install httpd we server with shell script)
 -----
