@@ -9,10 +9,10 @@ Every shell script start with #!/bin/bash(shebang shell) line
 script1
 ------
 #!/bin/bash
- pwd
- ls
- ls -lrt | wc -l
- mkdir hanu
+  pwd
+  ls
+  ls -lrt | wc -l
+  mkdir hanu
 
 
 script2
