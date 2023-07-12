@@ -52,11 +52,14 @@
 ## file permissions and directory permission
 - r -4
 - w -2
-- x -1 
-- -rw-   r--    r--. 1    root   root    0 May 27 06:12 mhr.txt
+- x -1
+ 
+  ```
+   -rw-   r--    r--. 1    root   root    0 May 27 06:12 mhr.txt
   owner  group  others    owner  group 
   420    400    400
    6      4      4 
+  ```
 
 
 - drwx   r-x    r-x. 2     root root 57 May 28 05:13 hanu
@@ -76,8 +79,8 @@
 
 ## How to remove execution and write  permission to the file
 - -rwx  r-x r-x. 1 root root 0 May 27 06:06 mhr.txt
-- chmod - x mhr.txt
 - chmod -x mhr.txt
+- chmod +x mhr.txt
 - chown username:groupname filename
   Ex; chown hanu:hanu  mhr.txt
 - chown username:groupname  directory   # it used to change own of the ramesh directory only
