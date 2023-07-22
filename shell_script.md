@@ -85,6 +85,27 @@ if [ $a -gt $b ]
 	  echo " number a is less then number b"
 fi
 ```
+## For Loop example
+```
+#!/bin/bash
+ names=" hanu mali suresh mahesh ravi haswi"
+ for name in ${images};
+ do
+  echo "my name is ${name}
+ done
+```
+```
+#!/bin/bash
+ images=" httpd nginx mysql openjdk"
+ repo="hanumantharao1986"
+ for img in ${images};
+ do
+  echo " image name is ${img}
+  docker pull ${img}
+  docker tag ${img} ${repo}/${img}
+  docker push ${repo}/${img}
+ done
+```
 
 
 
