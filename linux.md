@@ -6,6 +6,7 @@
 - cd .. # it is used to go back to the directory
 - cd ../../.. # is is used to go back to the three directories
 - cd ~  # it used to swith to home directory of the user
+- su - pavan  # it is used switch to the pavan user
 ## Following ways we are using to create file
 ## - 1) cat 
        cat is used to read the file and create and oppendn the files
@@ -76,6 +77,8 @@
   chmod +x mhr.txt
 ## How to add only write  permission to the file
 - chmod +w mhr.txt
+# how to provide permission for folder and subfolders
+- chmod -R 777 ramesh
 
 ## How to remove execution and write  permission to the file
 - -rwx  r-x r-x. 1 root root 0 May 27 06:06 mhr.txt
@@ -87,23 +90,28 @@
   Ex: chown hanu:hanu  ramesh
 - chown -R hanu:hanu remesh  #  it used to change own of the ramesh directory and sub directories as well
 
-# importent linux command and thier useage
- -  yum install vim   # to install vim software
- -  yum install net-tools # to install net-tools for getting access network related commands
- -  yum list httpd  # it is used to know httpd is installed or not
- -  yum install httpd # it is used to install httpd 
- -  yum remove httpd # it is used to remove the httpd package
- -  systemctl start httpd  # it is used to start the httpd service
- -  systemctl status httpd  # it is used to know the status of the httpd
- -  systemctl restart httpd  # it is used to restart the httpd service
- -  /var/log/httpd/  # it is default location to store the httpd logs
- -  /var/www/html/ # it is default directory for web the server
- -  tail -5 access_log  # it used to list the last five line of the access_log
- -  tail -f access_log  # it is used to check the running logs
- -  ps -aux  # to list the all process in the server
- -  ps -ef | grep httpd  # it is used to find the process id of the httpd service
- -  kill -9 processid  # it is used to kill the process
- -  netstat -ntlp  # it used to know the what are the ports are running the server
+# types of web servers
+  - nginx
+  - httpd
 
+## how to install web server
+
+- yum install httpd -y # to install web server package
+- systemctl start httpd # to start the httpd service
+- systemctl status httpd # to check the status of the httpd server
+- systemctl enable httpd  # to enable the httpd server
+- /var/www/html is default direcotry of httpd web server. no need to create this path when we have installed httpd server then automatically it got created
+- create index.html in /var/www/html and write some data
+- add 80 port in the securrity group of ec2 instance
+# how to check the httpd web logs
+- /var/log/httpd  # it default location for storing httpd logs
+   - error_log  # it stores error logs
+   - access_log # it stores access logs
+- tail -f /var/log/httpd/access_log  # to check the running logs
+- head -5 access_log # to display first five lines
+- tail -1- access_log # to display the last 10 lines
+-  ps -aux  # to list the all process in the server
+-  ps -ef | grep httpd  # it is used to find the process id of the httpd service
+-  kill -9 processid  # it is used to kill the process
 
 
