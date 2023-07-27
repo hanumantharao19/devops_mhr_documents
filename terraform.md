@@ -103,7 +103,7 @@ resource "aws_instance" "app_server" {
   }
 }
 
-
+- terraform apply -var "instance_name=YetAnotherName"
 
 ami-02b8534ff4b424939  us-east-2 redaht
 ami-0263b519400e979e7  us-east-2  ubuntu
