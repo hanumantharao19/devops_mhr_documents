@@ -144,12 +144,12 @@
   - grep  -i hanu /opt # it is display hanu word in the /opt directory
   - grep -v hanu demo.txt  # it display all lines in the file except hanu word
 # find
- find /  -type f  -name demo.txt  # it used to search the demo.txt file in root location
- find /home -type f -name demo.txt # it used to search the demo.txt file in /home location
- find /  -type d  -name httpd  # it is used to search the httpd directory in root location
- find /  -type f -perm 644  # it is used to search files based on the file permission
- find / -type d -perm 755  # it is used to search directories based on the file permission
- find /home  -type d -mtime +5 # is is used to search file based last modifed date(example 5 days)
+ - find /  -type f  -name demo.txt  # it used to search the demo.txt file in root location
+ - find /home -type f -name demo.txt # it used to search the demo.txt file in /home location
+ - find /  -type d  -name httpd  # it is used to search the httpd directory in root location
+ - find /  -type f -perm 644  # it is used to search files based on the file permission
+ - find / -type d -perm 755  # it is used to search directories based on the file permission
+ - find /home  -type d -mtime +5 # is is used to search file based last modifed date(example 5 days)
 
 
 
