@@ -114,4 +114,45 @@
 -  ps -ef | grep httpd  # it is used to find the process id of the httpd service
 -  kill -9 processid  # it is used to kill the process
 
+# vim
+- command mode # it is default mode. 
+  - gg # shift to the top of the page
+  - G # shift to the botoom of the page
+  - dd # delete present ( where cursor locate)
+  - 2dd  # delete two lines form the cursor postion
+  - 3yy # copy the three lines to the downwards from cursor postion
+  - p # it used to past line which ever copy early
+  - u # undo the previous changes
+
+- insermode 
+   - if write any thing or modify the existing file we can use insert mode
+   - i  # press i to insert at curosor poistion
+   - o #  press o to insert at below the cursor postion
+- execution mode
+   - use ESC buttom to shift from insertmode to command mode
+   - Press : to shift form commmode to execution
+   - it is used to save the file
+   - w # it is used to save the file
+   - wq # it is used to save and quit
+   - q!  # quit with out saving the data forcefully
+   - : se number # to assign the numbers
+  
+  # grep
+  - grep commdn is used to gerp the words form  the file and directories
+  - grep hanu demo.txt
+  - grep -i hanu demo.txt # it is display hanu word in the file
+  - grep  -i hanu /opt # it is display hanu word in the /opt directory
+  - grep -v hanu demo.txt  # it display all lines in the file except hanu word
+# find
+ find /  -type f  -name demo.txt  # it used to search the demo.txt file in root location
+ find /home -type f -name demo.txt # it used to search the demo.txt file in /home location
+ find /  -type d  -name httpd  # it is used to search the httpd directory in root location
+ find /  -type f -perm 644  # it is used to search files based on the file permission
+ find / -type d -perm 755  # it is used to search directories based on the file permission
+ find /home  -type d -mtime +5 # is is used to search file based last modifed date(example 5 days)
+
+
+
+
+
 
