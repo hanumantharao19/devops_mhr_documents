@@ -3,7 +3,8 @@
 - ant
 - gradle
 - maven
-   - maven : maven is build tool whcih is used to compile the code(java code)
+   - maven : maven is build tool whcih is used to compile the code,test the code , pakage the code  and deploy the code 
+   remote server (java code)
 
 - Maven component in pom.xml
    - pom project object model

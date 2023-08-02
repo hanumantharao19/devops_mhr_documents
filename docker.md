@@ -40,6 +40,7 @@ step2)
 - docker login http:www.example.com
 
 ## Doker file for  buils the httpd image
+```
 FROM centos:latest
 RUN cd /etc/yum.repos.d/
 RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
@@ -47,5 +48,6 @@ RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|
 RUN yum install httpd -y
 EXPOSE 80
 ENTRYPOINT [ "/usr/sbin/httpd","-D", "FOREGROUND"]
+```
 
 
