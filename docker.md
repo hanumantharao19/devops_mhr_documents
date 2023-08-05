@@ -31,13 +31,14 @@ step2)
 
 - docker run -d -p 90:80 httpd  --> to access application through browser with Host Ip with 90 port
 
-## Below command is used to build the docker image
-------------------------------------------
-- docker build -t sephttpd .
 
-- docker build -t hanumantharao1986/saleshttp:v1 . 
-
-- docker login http:www.example.com
+# Build the image and push to the docker repo
+- docker build -t hanu_httpd .
+- docker tag hanu_httpd  hanumantharao1986/hanu_httpd
+or 
+- docker build -t hanumantharao1986/hanu_httpd
+- docker login  # to login the docker hub while login it as your user name and password of docker hub
+- docker push hanumantharao1986/hanu_httpd
 
 ## Doker file for  buils the httpd image
 ```
