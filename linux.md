@@ -151,6 +151,8 @@
  - find / -type d -perm 755  # it is used to search directories based on the file permission
  - find /home  -type d -mtime +5 # is is used to search file based last modifed date(example 5 days)
 
+ - This is hanumantharao medikonda
+
 
 
 
