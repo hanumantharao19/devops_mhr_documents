@@ -203,6 +203,23 @@ aws s3 rb s3://mhr-demo-hr-project --force
 
 -------------------
 
+## IAM( Identitiy Access Amanagment)
+ - 1)Autenticatio
+ - 2) Authenrizaion
+
+
+- Two types of users access
+ - console access
+   - it used to access aws  resources through console
+ - programatic access
+   - it is used to access aws resources through CLI and aws SDK
+   - it is used to connect form one service(ec2) to other service (s3 ) 
+
+
+
+
+
+
 
 
 
