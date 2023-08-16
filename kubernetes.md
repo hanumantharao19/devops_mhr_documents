@@ -176,7 +176,6 @@ kubernetes Deployment :
 kubernetes deployment has some advantages as compared to Replicaset
 1) we can increase the pods and decrease the pods count through commnad line
 2) we can rollout and rollback the version easly with deployment
-
 ```
 apiVersion: apps/v1
 kind: Deployment
@@ -195,7 +194,6 @@ spec:
       containers:
       - name: mhr-container
         image: nginx
-
 ```
 # update the deployment with new image version
 - kubectl set image deployment.v1.apps/nginx-deployment mhr-container=nginx:1.16.1
