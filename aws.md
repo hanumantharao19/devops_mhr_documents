@@ -119,9 +119,9 @@ How to connect to the ec2 to s3 by programatic access( aws CLI)
 step1) create Ec2 isntance
 step2) isntall aws cli in ec2 instance
 
-#dnf install python3-pip  # it  need to install with root user
-pip3 install awscli --upgrade --user  # should run with normal user
-aws --version
+- #dnf install python3-pip  # it  need to install with root user
+- pip3 install awscli --upgrade --user  # should run with normal user
+- aws --version
 
 step3) create a user and select programatic access while creating user
 step4) Provide the required permission to users
@@ -214,6 +214,12 @@ aws s3 rb s3://mhr-demo-hr-project --force
  - programatic access
    - it is used to access aws resources through CLI and aws SDK
    - it is used to connect form one service(ec2) to other service (s3 ) 
+
+## resize the root volume of the EC2 instance
+-  growpart /dev/xvda 1  # perform with root user or root permission
+-  resize2fs /dev/xvda1  # perform with root user or root permission
+
+
 
 
 

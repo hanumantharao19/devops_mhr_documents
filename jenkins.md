@@ -1,3 +1,17 @@
+## Jenkins
+ - Jenkins in CI/CD Tools
+ - other alternative tools for jenkins are 
+   -  GIT HUB Actions
+   -  Git LAB ,
+   -  Circle CI, 
+   -  Bambo
+- Jenkins can install in server, in local laptop and container
+
+   
+
+
+
+
 - yum update
 -  yum install wget
 -  wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins.io/redhat-stable/jenkins.repo

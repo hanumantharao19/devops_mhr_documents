@@ -70,6 +70,11 @@ Start the minikube
 - minikube start --addons=ingress --cpus=2 --cni=flannel --install-addons=true --kubernetes-version=stable --memory=3g
 - minikube status
 
+## To know cluster events and cluster info
+ - kubectl get events
+ - kubectl config view
+
+
 
 Deploy the sample application in Kubernetes(minikube)
 --------------------------
@@ -133,13 +138,15 @@ kubectl get ns ---> --> to list the namespaces
 kubectl get pods --> to list pods in default namespaces
 or
 kubectl get po  -->to list pods in default namespaces
+kubectl exec -it <podname> /bin/bash
 
 
 Replicaset
 -------------
-Replicaset is used to  maintain or running always  same number of pods  as mentioned 
+Replicaset is used to  maintain or runs always same number of pods as mentioned 
 in the manifest file
--------
+- kubectl create -f replicaset.yaml  # to create replicaset
+```
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
@@ -157,38 +164,26 @@ spec:
       containers:
       - name: my-container
         image: nginx
----------------------------
-
-kubectl get replicaset  --> to list the replicaset
-
+```
+- kubectl get replicaset  --> to list the replicaset
 or
-kubectl get rs  --> to list the replicaset
-
-
-kubectl delete rs <replicasetname>  -->   to delete the replicaset
+- kubectl get rs  --> to list the replicaset
+- kubectl delete rs <replicasetname>  -->   to delete the replicaset
 
 
 kubernetes Deployment :
 ------------------
 kubernetes deployment has some advantages as compared to Replicaset
-1) we can increase the pod and decrease the pod count through commnad line
-2) we rollout and rollback the version easly with deployment
+1) we can increase the pods and decrease the pods count through commnad line
+2) we can rollout and rollback the version easly with deployment
 
-rollout: we can deploy the new version code
-
-
-rollback: we can revert deployment to old the version 
-
-update the docker iamge in command line
-
-kubectl set image deployment.v1.apps/mhr-deployement mhr-container=nginx:1.16.1
-
+```
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: vamsi-deployement
+  name: nginx-deployment
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: sales-app
@@ -200,6 +195,37 @@ spec:
       containers:
       - name: mhr-container
         image: nginx
+
+```
+# update the deployment with new image version
+- kubectl set image deployment.v1.apps/nginx-deployment mhr-container=nginx:1.16.1
+  - or 
+- kubectl set image deployment/nginx-deployment mhr-container=nginx:1.16.1
+  - or
+- kubectl edit deployment/nginx-deployment
+
+# To know the status and history of the deployment
+ - kubectl rollout status deployment/nginx-deployment  # To know the status of deployment
+ - kubectl rollout history deployment/nginx-deployment # To know the rollout history
+ - kubectl rollout history deployment/nginx-deployment --revision=3  # To know the image version details for the 
+   particular revsion
+
+# Roll back to the previous of the deployment
+ - kubectl rollout undo deployment/nginx-deployment  # Roll back to the previous version of the deployment
+ - kubectl rollout undo deployment/nginx-deployment --to-revision=2 # Roll back back to the required version of 
+   deployment(example version 2)
+# 
+
+   kubectl scale deployment/nginx-deployment --replicas=2
+   kubectl scale deployment/nginx-deployment --replicas=5
+
+
+## Deployement in command line
+- kubectl create deployment hello-node --image=k8s.gcr.io/echoserver:1.4
+- kubectl expose deployment hello-node --type=NodePort --port=8080
+
+- Reference doc: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
+
 
 -------------------
 -----------------
