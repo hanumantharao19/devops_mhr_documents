@@ -75,72 +75,39 @@ Start the minikube
  - kubectl config view
 
 
-
-Deploy the sample application in Kubernetes(minikube)
---------------------------
-kubectl create deployment my-nginx --image=nginx
-kubectl get deployments.apps my-nginx
-kubectl get pods
-
-
-
-Deploy the pod in kubernetes cluster
-------------------------------------
-kubectl run hanu  --image nginx  --> create the pod in command line
-
+## Deploy the pod in kubernetes cluster
+kubectl run hanu  --image nginx ## create the pod in command line
 or
-
-pod.yaml
-----------
+```
 apiVersion: v1
-
 kind: Pod
-
 metadata:
-
-  name: mhr
-
+  name: nginx
 spec:
-
   containers:
-
-  - name: mhr
-
+  - name: nginx
     image: nginx:1.14.2
-
     ports:
-
     - containerPort: 80
+```
+- kubectl create -f pod.yaml  --> to create through manifest file
 
------------------------
-
-kubectl create -f pod.yaml  --> to create through manifest file
-
-kubectl delete pod hanu  ---> to delete the pod
+- kubectl delete pod hanu  ---> to delete the pod
 or
-kubectl delete -f pod.yaml  --> to delete the pod
-
-Namespace:
-
-name space is noting but a virtual cluster
-
-Genrall a cluster can divided into number of namespaces as 
-per our requirement
-
-by default we have some namespaces in the cluster
-
-
-kubectl get namespaces  --> to list the namespaces
-
-or 
-kubectl get ns ---> --> to list the namespaces
-
+- kubectl delete -f pod.yaml  --> to delete the pod
 kubectl get pods --> to list pods in default namespaces
 or
 kubectl get po  -->to list pods in default namespaces
 kubectl exec -it <podname> /bin/bash
 
-
+## Namespace:
+- name space is noting but a virtual cluster
+- Genrall a cluster can divided into number of namespaces as 
+  per our requirement
+- by default we have some namespaces in the cluster
+- kubectl get namespaces  --> to list the namespaces
+   or 
+- kubectl get ns ---> --> to list the namespaces
 Replicaset
 -------------
 Replicaset is used to  maintain or runs always same number of pods as mentioned 
@@ -224,35 +191,24 @@ spec:
 
 - Reference doc: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
 
+## Create name space
 
--------------------
------------------
-how to create namespace
-
-
-kubectl create  namespace <namespacename>
-
-Ex: kubectl create namespace dev  --> create the dev namespace
+- kubectl create  namespace <namespacename>
+   - Ex: kubectl create namespace dev  --> create the dev namespace
 
 or 
-kubectl create -f namespace.yaml --Create the the namespace
+- kubectl create -f namespace.yaml --Create the the namespace
+- kubectl delete namespace dev --- delete the dev namespace
+   or 
+- kubectl delete -f namespace
 
-
-kubectl delete namespace dev --- delete the dev namespace
-
-or 
-kubectl delete -f namespace
-
-
-kubectl create -f deployment.yaml  ---> inside we can namespace details 
+- kubectl create -f deployment.yaml -n dev  --> deployemt pods in to the dev
+ namespace
+ or 
+- kubectl create -f deployment.yaml  ---> inside we can namespace details 
 to deployment particualar namespace
-
-or
-
-kubectl create -f deployment.yaml -n dev  --> deployemt pods in to the dev
-namespace
-
-
+## deployment in particular namespace
+```
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -271,16 +227,14 @@ spec:
       containers:
       - name: mhr-container
         image: nginx
-
-
+```
 kubectl get pods -n dev ---> list the all pods in the dev namespace
 
 ----------------------
-configmaps
----------
+## creae config mpa with application property file
 
 configmap.yaml
-
+```
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -294,15 +248,15 @@ data:
     secret.code.passphrase=UUDDLRLRBABAS
     secret.code.allowed=true
     secret.code.lives=30
-
+```
 kubectl create -f configmap.yaml -->crete configmap
 
 or 
-
 kubectl create configmap hanu-config --from-file=hanu.properties --Create 
 configmap by command line
 
---------------
+## Deployment with configmaps
+```
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -338,9 +292,12 @@ spec:
        - name: mhr-volume
          configMap:
            name: mhr-config
+```
+
 -----------------------------
-Persistant volume
+## Persistant volume
 -----------------
+```
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -353,8 +310,9 @@ spec:
     - ReadWriteOnce
   hostPath:
     path: /home/ubuntu/mhr
-
------
+```
+## Persistant Volume Claim
+```
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -366,7 +324,9 @@ spec:
   resources:
     requests:
       storage: 1Gi
--------------------
+```
+## Persistant claim used by the pod
+```
 apiVersion: v1
 kind: Pod
 metadata:
@@ -385,7 +345,7 @@ spec:
       volumeMounts:
         - mountPath: /home/nginx/mhr
           name: mhr-storage
--------------------
+```
 
 
 
