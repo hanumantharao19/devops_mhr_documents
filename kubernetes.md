@@ -136,13 +136,16 @@ spec:
 or
 - kubectl get rs  --> to list the replicaset
 - kubectl delete rs <replicasetname>  -->   to delete the replicaset
+- kubectl delete pod <podname> # To delete pod
+- Note: even if you are deleted pod then automatically it will creae new pods
+  becuase replicaset will make sure  maintain same no of pods as we mentioned in the mainfest file(replicaset    file)
 
 
 kubernetes Deployment :
 ------------------
 kubernetes deployment has some advantages as compared to Replicaset
-1) we can increase the pods and decrease the pods count through commnad line
-2) we can rollout and rollback the version easly with deployment
+- 1) we can increase the pods and decrease the pods count through commnad line
+- 2) we can rollout and rollback the version easly with deployment
 ```
 apiVersion: apps/v1
 kind: Deployment
@@ -162,6 +165,10 @@ spec:
       - name: mhr-container
         image: nginx
 ```
+## create the deployment and delete the deployment
+- kubectl create -f deployment.yaml
+- kubect delete -f deployment.yaml
+- kubectl delete deployment <deploymentname>
 # update the deployment with new image version
 - kubectl set image deployment.v1.apps/nginx-deployment mhr-container=nginx:1.16.1
   - or 
@@ -179,11 +186,9 @@ spec:
  - kubectl rollout undo deployment/nginx-deployment  # Roll back to the previous version of the deployment
  - kubectl rollout undo deployment/nginx-deployment --to-revision=2 # Roll back back to the required version of 
    deployment(example version 2)
-# 
-
-   kubectl scale deployment/nginx-deployment --replicas=2
-   kubectl scale deployment/nginx-deployment --replicas=5
-
+# Scale in and scale oot replicas
+ - kubectl scale deployment/nginx-deployment --replicas=2
+ - kubectl scale deployment/nginx-deployment --replicas=5
 
 ## Deployement in command line
 - kubectl create deployment hello-node --image=k8s.gcr.io/echoserver:1.4
@@ -192,21 +197,22 @@ spec:
 - Reference doc: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
 
 ## Create name space
-
+- kubectl get namespaces # To list the existing namespaces
+  or
+-  kubectl get ns  # To list the existing namespaces
 - kubectl create  namespace <namespacename>
-   - Ex: kubectl create namespace dev  --> create the dev namespace
-
-or 
-- kubectl create -f namespace.yaml --Create the the namespace
-- kubectl delete namespace dev --- delete the dev namespace
-   or 
-- kubectl delete -f namespace
-
-- kubectl create -f deployment.yaml -n dev  --> deployemt pods in to the dev
- namespace
- or 
+   - Ex: kubectl create namespace dev  # create the dev namespace
+  or
+- kubectl create -f namespace.yaml # Create the the namespace
+```
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: qa
+```
 - kubectl create -f deployment.yaml  ---> inside we can namespace details 
 to deployment particualar namespace
+
 ## deployment in particular namespace
 ```
 apiVersion: apps/v1
@@ -228,8 +234,32 @@ spec:
       - name: mhr-container
         image: nginx
 ```
-kubectl get pods -n dev ---> list the all pods in the dev namespace
+- kubectl delete namespace dev  #delete the dev namespace
+   or 
+- kubectl delete -f namespace.yaml # delete the namespace
 
+- kubectl create -f deployment.yaml -n dev  --> deployemt pods in to the dev
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vamsi-deployement
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sales-app
+  template:
+    metadata:
+      labels:
+        app: sales-app
+    spec:
+      containers:
+      - name: mhr-container
+        image: nginx
+```
+kubectl get pods -n dev ---> list the all pods in the dev namespace
+Reference: https://kubernetes.io/docs/tasks/administer-cluster/namespaces/
 ----------------------
 ## creae config mpa with application property file
 
