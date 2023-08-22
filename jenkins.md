@@ -40,3 +40,62 @@ sudo systemctl status jenkins
 ```
 - Reference link
   https://www.jenkins.io/doc/book/installing/linux/#red-hat-centos
+
+
+## frist sample jenkins pipeline job
+```
+pipeline {
+    agent any
+    
+    stages {
+        stage('frist stage') {
+            steps {
+              echo "this is my frist stage"  
+            }
+            
+        }
+        stage('second stage') {
+            steps {
+                echo "this is my second stage"
+            }
+        }
+        
+        stage('thrid stage') {
+            steps {
+                echo "this is my third stage"
+            }
+        }
+        
+        
+        
+    }
+    
+    
+}
+```
+## second sample jenkins pipeline job
+```
+pipeline {
+    agent any
+    
+    stages {
+        stage('crete hr directory') {
+            steps {
+                sh 'rm -rf ramesh'
+                sh 'mkdir ramesh'
+            }
+        }
+        
+        stage('create file in hr directory'){
+            steps {
+                dir('ramesh') {
+                    sh 'touch text{1..10}.txt'
+                    
+                }
+
+                
+            }
+        }
+    }
+}
+```
