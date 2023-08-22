@@ -99,3 +99,21 @@ pipeline {
     }
 }
 ```
+## thrid sample job
+```
+pipeline {
+    agent any
+    
+    parameters {
+    string(name: 'yourname', defaultValue: 'hanumantharao', description: 'please enter your full name')
+     }
+    
+    stages {
+        stage('dispaly my name'){
+            steps {
+                echo "my name is $yourname"
+            }
+        }
+    }
+}
+```
