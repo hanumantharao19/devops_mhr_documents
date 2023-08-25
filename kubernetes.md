@@ -302,10 +302,8 @@ spec:
       name: mhr-config
       # An array of keys from the ConfigMap to create as files
       items:
-      - key: "game.properties"
-        path: "game.properties"
-      - key: "user-interface.properties"
-        path: "user-interface.properties"
+      - key: "application.properties"
+        path: "application.properties"
 ```
 
 or
