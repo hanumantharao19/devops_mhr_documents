@@ -117,3 +117,16 @@ pipeline {
     }
 }
 ```
+### git hub cloning
+```
+pipeline {
+    agent any
+    stages {
+        stage('git clone') {
+            steps {
+                git branch: 'main', url: 'https://github.com/hanumantharao19/docker-maven-image.git'
+            }
+        }
+    }
+}
+```
