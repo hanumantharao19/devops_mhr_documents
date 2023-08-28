@@ -410,7 +410,7 @@ spec:
                 name: game-demo           # The ConfigMap this value comes from.
                 key: player_initial_lives # The key to fetch.
           - name: UI_PROPERTIES_FILE_NAME
-             valueFrom:
+            valueFrom:
                configMapKeyRef:
                  name: game-demo
                  key: ui_properties_file_name
