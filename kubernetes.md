@@ -311,7 +311,7 @@ or
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: ravi-demo
+  name: test-config
 data:
   # property-like keys; each key maps to a simple value
   player_initial_lives: "3"
@@ -343,7 +343,7 @@ configmap by command line
 apiVersion: v1
 kind: Pod
 metadata:
-  name: configmap-demo-pod
+  name: configmap-test-pod
 spec:
   containers:
     - name: demo
@@ -355,12 +355,12 @@ spec:
                                      # from the key name in the ConfigMap.
           valueFrom:
             configMapKeyRef:
-              name: game-demo           # The ConfigMap this value comes from.
+              name: test-config           # The ConfigMap this value comes from.
               key: player_initial_lives # The key to fetch.
         - name: UI_PROPERTIES_FILE_NAME
           valueFrom:
             configMapKeyRef:
-              name: game-demo
+              name: test-config
               key: ui_properties_file_name
       volumeMounts:
       - name: config
@@ -371,7 +371,7 @@ spec:
   - name: config
     configMap:
       # Provide the name of the ConfigMap you want to mount.
-      name: game-demo
+      name: test-config
       # An array of keys from the ConfigMap to create as files
       items:
       - key: "game.properties"
@@ -379,7 +379,8 @@ spec:
       - key: "user-interface.properties"
         path: "user-interface.properties"
 ```
-
+## how to login into the pod
+- kubectl exec -it mhr-test-pod /bin/sh
 ## use the configmap while creating the deployments
 ```
 apiVersion: apps/v1
