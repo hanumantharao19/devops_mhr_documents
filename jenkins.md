@@ -121,12 +121,44 @@ pipeline {
 ```
 pipeline {
     agent any
+    
+    tools {
+        maven 'maven-3.9.4'
+    }
+    
     stages {
         stage('git clone') {
             steps {
                 git branch: 'main', url: 'https://github.com/hanumantharao19/docker-maven-image.git'
             }
         }
+        
+        stage('maven build'){
+            steps {
+                sh 'mvn clean install'
+            }
+        }
+        stage('docker login'){
+            steps {
+                sh 'docker login -u hanumantharao1986 -p Haswitha@1986'
+            }
+            
+        }
+        
+        stage('docker build') {
+            steps {
+                sh 'docker build -t hanumantharao1986/august_java_image:v1.0 .'
+            }
+        }
+        
+        stage('docker image to docker registry') {
+            steps {
+                sh 'docker push hanumantharao1986/august_java_image:v1.0'
+            }
+        }
     }
 }
 ```
+
+- usermod -a -G docker jenkins --> add Jenkins user in to the docker group
+- chmod 666 /var/run/docker.sock -- > for avoiding permission issue while building docker image
