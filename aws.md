@@ -1,7 +1,22 @@
+Any ip address is 32 bit
+ip 192.168.10.0
+
+2*3 = 8 bit
+
+
+Class	Address Range	Subnet masking	Example IP	Leading bits	Max number of networks	Application
+IP Class A	1 to 126	255.0.0.0	1.1.1.1	8	128	Used for large number of hosts.
+IP Class B	128 to 191	255.255.0.0	128.1.1.1	16	16384	Used for medium size network.
+IP Class C	192 to 223	255.255.255.0	192.1.11.	24	2097157	Used for local area network.
+IP Class D	224 to 239	NA	NA	NA	NA	Reserve for multi-tasking.
+IP Class E	240 to 254	NA	NA	NA	NA	This class is reserved for research and Development Purposes.
+
 Types of ip address class
-- Class A  0- 127
+- Class A  1- 127
 - Class B  128 -191
 - Class C  192 -223
+
+2*32 - 2*16 = 2*16 = 65500
 
 
 - 192.168.0.0 # each ip address have 32 bits
@@ -12,10 +27,19 @@ Types of ip address class
   2*32-2*16  = 2*16 = 65500
   - 192.168.0.0
     192.168.0.1
-    192.168.0.255
+  
+    192.168.0.255  -256
+
   - 192.168.1.0
     192.168.1.1 
-    192.168.1.255
+    192.168.1.255  -256
+
+  - 192.168.2.0
+    192.168.2.255  -256
+
+   
+  - 192.168.255.0
+    192.168.255.255  -256
 ------------
 192.168.30.0/20
 
@@ -81,23 +105,42 @@ on the path
 
 ----------------------
 
-types of instances
+## Attach EBS vloume to the EC2 instance
+- 1) EBS vloume and Ec2 instance both are should be in the same zone
+- 2) Attach EBS vloume to the instance
+- 3) Check the EBS volume is available in the server with below command
+    - lsblk
+- 4) Follow below the command to format the file sysstem and mount the file system to the directory
+  ```
+   mkfs -t ext4 /dev/xvdf
+   OR
+   mkfs.xfs  /dev/xvdf
+   mkdir /opt/hanu
+   mount /dev/xvdf /opt/hanu
+   ```
+- 5) For permanet mount need to enter details in the /etc/fstab file like below
+  ```
+  vim  /etc/fstabs
+  /dev/xvdf  /opt/hanu  ext4 default  0 0
+  ```
+
+## types of instances
 --------------
-1)ondemand instances
-on demand instances are costly as compared to other
-which are usually created where ever we are required
+- 1)ondemand instances
+  - on demand instances are costly as compared to other
+  - which are usually created where ever we are required
 
-2) reserved instances
- we are reserved instances for mutiple years like two or three years
-so price is less as compared to on demand
+- 2) reserved instances
+  - we are reserved instances for mutiple years like two or three years
+    so price is less as compared to on demand
 
-3)spot instance
-there spot are provided at very low cost but there take back any time 
-there instance are genrally used for peak load
-sopt instances cost is less as compared to other instances
+- 3)spot instance
+   - there spot are provided at very low cost but there take back any time 
+   - there instance are genrally used for peak load
+   - sopt instances cost is less as compared to other instances
 
 
-IAM  --Identity Access Management
+## IAM  --Identity Access Management
 
 I  --Authentication --We can able to login
 A  --Autheraization   --We can able to see the resources
@@ -114,35 +157,29 @@ help of access key and secret key
 
 
 
-How to connect to the ec2 to s3 by programatic access( aws CLI)
+## How to connect to the ec2 to s3 by programatic access( aws CLI)
 ---------------------------
-step1) create Ec2 isntance
-step2) isntall aws cli in ec2 instance
-
-- #dnf install python3-pip  # it  need to install with root user
-- pip3 install awscli --upgrade --user  # should run with normal user
-- aws --version
-
-step3) create a user and select programatic access while creating user
-step4) Provide the required permission to users
-step5) aws configure
-step6) aws s3 ls --> list buckets in s3
+- step1) create Ec2 isntance
+- step2) isntall aws cli in ec2 instance
+     - dnf install python3-pip  # it  need to install with root user
+     - pip3 install awscli --upgrade --user  # should run with normal user
+     - aws --version
+- step3) create programatic user
+- step4) Provide the required permission to programatic user
+- step5) aws configure
+- step6) aws s3 ls --> list buckets in s3
 
 -------------------------------
+# How to connect to the ec2 to s3 by Role
+ - roles: roles are used to connect form one resource to other resource
+- step1) create a role
+- step2) provide required access(required policy) to the role
+- step3) create ec2 isntance and attach roles to ec2 isntance while creating
+- step4)  install aws cli
 
-roles: roles are used to connect form one resource to other resource
-
-
-How to connect to the ec2 to s3 by programatic access( aws CLI)
-
-step1) create a role
-step2) provide required access(required policy) to the role
-step3) create ec2 isntance and attach roles to ec2 isntance while creating
-step4)  install aws cli
-
-#dnf install python3-pip  # it  need to install with root user
-pip3 install awscli --upgrade --user  # should run with normal user
-aws --version
+   - dnf install python3-pip  # it  need to install with root user
+   - pip3 install awscli --upgrade --user  # should run with normal user
+   - aws --version
 
 step5) aws s3 ls  -->list the bucekts s3
 
@@ -219,6 +256,11 @@ aws s3 rb s3://mhr-demo-hr-project --force
 -  growpart /dev/xvda 1  # perform with root user or root permission
 -  resize2fs /dev/xvda1  # perform with root user or root permission
 
+### aws cli commands
+- aws ec2 describe-instances
+- aws ec2 describe-instances – region us-east-2
+- aws ec2 start-instances --instance-ids i-0956c0b9e313ff154
+- aws ec2 stop-instances --instance-ids i-0956c0b9e313ff154
 
 
 
