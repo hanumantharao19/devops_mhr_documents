@@ -225,18 +225,18 @@ www.sanyay.com  --s3bucket
 
 ------------
 
-aws s3 ls ---> to list buckets
-aws s3 ls s3://satic-website-ice-sep  --> list objects in the buckets
-aws s3 ls s3://satic-website-ice-sep/css --> list file in the directory of s3 bcukets
-aws s3 mb s3://mhr-progarmatic-access-bucket  --> create new bucket
-aws s3 rb s3://mhr-progarmatic-access-bucket --->it is used to remove the bucket
+- aws s3 ls ---> to list buckets
+- aws s3 ls s3://satic-website-ice-sep  --> list objects in the buckets
+- aws s3 ls s3://satic-website-ice-sep/css --> list file in the directory of s3 bcukets
+- aws s3 mb s3://mhr-progarmatic-access-bucket  --> create new bucket
+- aws s3 rb s3://mhr-progarmatic-access-bucket --->it is used to remove the bucket
 
-aws s3 cp sepbatch.txt s3://demo-bucket-monday-mhr  --> upload
-file from ec2(local) instance to s3
+- aws s3 cp sepbatch.txt s3://demo-bucket-monday-mhr  --> upload
+   #file from ec2(local) instance to s3
 
-aws s3 cp s3://demo-bucket-monday-mhr/Linux.txt . ---> down
-load the file from s3 bucket to local
-aws s3 rb s3://mhr-demo-hr-project --force
+- aws s3 cp s3://demo-bucket-monday-mhr/Linux.txt . ---> down
+  #load the file from s3 bucket to local
+- aws s3 rb s3://mhr-demo-hr-project --force
 
 -------------------
 
