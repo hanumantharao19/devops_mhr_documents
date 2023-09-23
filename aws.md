@@ -108,7 +108,7 @@ on the path
 ## Attach EBS vloume to the EC2 instance
 - 1) EBS vloume and Ec2 instance both are should be in the same zone
 - 2) Attach EBS vloume to the instance
-- 3) Check the EBS volume is available in the server with below command
+- 3) Login into the server Check the EBS volume is available in the server with below command
     - lsblk
 - 4) Follow below the command to format the file sysstem and mount the file system to the directory
   ```
@@ -117,7 +117,18 @@ on the path
    mkfs.xfs  /dev/xvdf
    mkdir /opt/hanu
    mount /dev/xvdf /opt/hanu
+   df -h
+   
    ```
+  ## Testing data is persist the data or not
+   - 1)touch text{1..100}.txt # create 100 files for testing purpose
+   - 2) delete the ec2 instance
+   - 3) create new instance and attach existing EBS volume(which is have 100 files)
+   - 4) dont format the EBS vaolume  and just create a directory like bleow
+        - mkdir /opt/ramesh # create a directorry
+   - 5) mount /dev/xvdf /opt/ramesh
+   - 6) df -h # to check file system mounte or not
+
 - 5) For permanet mount need to enter details in the /etc/fstab file like below
   ```
   vim  /etc/fstabs
@@ -184,25 +195,37 @@ help of access key and secret key
 step5) aws s3 ls  -->list the bucekts s3
 
 -------------------------------
-EBS
+## EBS
 ----
-Elastic Blcok storage
-data is stored in the form of block
-it used to perfom read and right oprations
+
+- Elastic Blcok storage
+- In EBS volume data is stored in the form of blocks 
+- it used to perfom read and right oprations
+- EBS volume is regional resource
+- aws ec2 create-volume --volume-type gp2 --size 5 --availability-zone us-east-2a
+
+## types EBS
+- 1) Generall purpose SSD
+    - a) Generall purpose SSD (gp2)
+    - b) Generall purpose SSD (gp3)
+- 2) provisioned iops SSD
+    - a) provisoined iops SSD(ios1)
+    - a) provisoined iops SSD(ios1)
+- 3) Magentic 
+
 
 S3 bucket
 ---------
-1)s3( simple storage service)
-2)s3 is object orinated storge that means usually we storing objects in the s3
+- 1)s3( simple storage service)
+- 2)s3 is object orinated storge that means usually we storing objects in the s3
 genrally we s3 buckets are there in s3
-
-3)s3 bucket globally unique
-4)s3 bucket is globall resource thant means files cam access globally and not regional resouce but we creating
+- 3)s3 bucket globally unique
+- 4)s3 bucket is globall resource thant means files cam access globally and not regional resouce but we creating
 storage buckets region wise
-5)genrally we are creating 100 buckets per region more than that if we 
-want we need to raise ticket for AWS support team
-6) Name of the bucket should be in small letters
-7) cost of the data stored in s3 is depends on the region
+- 5)genrally we are creating 100 buckets per region more than that if we 
+    want we need to raise ticket for AWS support team
+- 6) Name of the bucket should be in small letters
+- 7) cost of the data stored in s3 is depends on the region
 ------------------
 versioning
 
@@ -261,6 +284,8 @@ www.sanyay.com  --s3bucket
 - aws ec2 describe-instances – region us-east-2
 - aws ec2 start-instances --instance-ids i-0956c0b9e313ff154
 - aws ec2 stop-instances --instance-ids i-0956c0b9e313ff154
+- aws ec2 run-instances --instance-type t2.micro --image-id ami-02b8534ff4b424939
+
 
 
 
