@@ -1,4 +1,4 @@
-Terraform
+## Terraform
 ----------
 - Terraform is IAC(Infrastrcture as code) tool
 - Terraform is used to create infra in mutiple cloud like aws ,GCP and Azure
