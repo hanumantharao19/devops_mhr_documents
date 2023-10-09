@@ -8,6 +8,7 @@
 - cd ~  # it used to swith to home directory of the user
 - su - pavan  # it is used switch to the pavan user
 ## Following ways we are using to create file
+```
 ## - 1) cat 
        cat is used to read the file and create and oppendn the files
        cat > filename
@@ -21,7 +22,8 @@
        echo "this is hanu" > filename
    - 4) touch 
        touch file
-      Note: touch is used to create the empty file and update the timestamp of the file
+```
+-  Note: touch is used to create the empty file and update the timestamp of the file
 - rm   # it used to remove the file with asking user permission
 - rm -rf # it is used to remove the file with out asking user permission
 - rm -rf *   # it used to remove the all files and directories in the present working directory
@@ -33,22 +35,21 @@
 - rmdir directory  # to remvoe the empty directory
 - rm -rf directory # to remvoe the dorectory which has some files and sub directories
 
-## copy and move the files and directories form one place to other place
+## copy the files and directories form one place to other place
 - cp sourcepath destinationpath  # to copy the files form one place to other palce
-  Ex: cp /root/mhr.txt /opt
 - cp -r  sourcepath destinationpath   # to copy directories form one place to other palce
-- cp -r hanu /tmp
-  or
-  cp -r /root/hanu /opt
-  or
-  cp -r /root/hanu .
-
+```
+cp -r hanu /tmp
+cp -r /root/hanu /opt
+cp -r /root/hanu .
+```
 ---
-- mv hanu /tmp
-  or
-  mv /root/hanu /opt
-  or
-  mv /root/hanu .
+# move the files and directories with below commands
+```
+mv hanu /tmp
+mv /root/hanu /opt
+mv /root/hanu .
+```
 
 ## file permissions and directory permission
 - r -4
@@ -84,12 +85,25 @@
 - -rwx  r-x r-x. 1 root root 0 May 27 06:06 mhr.txt
 - chmod -x mhr.txt
 - chmod +x mhr.txt
-- chown username:groupname filename
-  Ex; chown hanu:hanu  mhr.txt
 - chown username:groupname  directory   # it used to change own of the ramesh directory only
-  Ex: chown hanu:hanu  ramesh
-- chown -R hanu:hanu remesh  #  it used to change own of the ramesh directory and sub directories as well
-
+- chown -R username:groupname directory #  it used to change own of the ramesh directory and sub directories as well
+  ```
+  chown hanu:hanu  ramesh
+  chown -R hanu:hanu remesh
+  ```
+# create user in linux server and login into the server
+- step1
+ - useradd hanu # this command is used to added into the server
+ - passwd hanu  # set password for the above user
+- step2
+ - uncommnet the "PubkeyAuthentication yes" in /etc/ssh/sshd_config file
+ ```
+ vim /etc/ssh/sshd_config
+ PubkeyAuthentication yes
+ ```
+- step3 
+  - ssh hanu@192.168.10.0 # connect the server with this commnad
+ 
 # types of web servers
   - nginx
   - httpd
