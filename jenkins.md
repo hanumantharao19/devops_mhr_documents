@@ -149,4 +149,34 @@ pipeline {
     }
 }
 ```
+## read the text file and print the data###
+```
+      stage('redafile'){
+            steps {
+                script {
+                   datainput = readFile 'Dockerfile'
+                }
+            }
+        }
+        stage('output'){
+            steps {
+                script {
+                   echo datainput
+                }
+            }
+        }
+```
+## read the properties file and grep the value###
+```
+      stage('readpomfile') {
+            steps {
+                script{
+                def props = readProperties file: 'version.properties'
+                def majaorVersion = props.majaorVersion
+                echo majaorVersion
+                }
+            }
+            
+         }
+```
 
