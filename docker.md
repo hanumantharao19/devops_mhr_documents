@@ -28,7 +28,6 @@ step2)
 - docker run --name <contianername> -d httpd  --> create container with name which we want
 - docker exec -it contianerid /bin/bash
 - docker run -d -p 80:80 httpd  --> to access application through browser with Host Ip with 80 port
-
 - docker run -d -p 90:80 httpd  --> to access application through browser with Host Ip with 90 port
 
 
