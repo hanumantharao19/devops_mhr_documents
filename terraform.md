@@ -18,6 +18,15 @@ sudo yum -y install terraform
 - Step2) 
   - create user in aws console and create access key and secrekey through aws console
   - provide admin access for the user which we have created
+- Step3) set up aws credentils
+```
+aws configure
+AWS Access Key ID [None]: xxxxxxxxxxxxxxxxx
+AWS Secret Access Key [None]: xxxxxxxxxxxxxxx
+Default region name [None]: us-east-2
+Default output format [None]:
+```
+
 
  vim main.tf
 ```
