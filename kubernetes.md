@@ -16,6 +16,27 @@ EKS( elastic Kubernetes server) --> this can provide by AWS
 GKE(google kubernetes Enginee) ---> this can be provide by Google
 AKS ( Azure Kubernernetes service)  --> this can be provided by Azure
 
+Step1) a) Select trusted entity type is AWS Service and select use case is EKS cluster
+        b) assign AmazonEKSclusterPolicy to the role while creating the rule
+Step2) a)while create EKS cluster assign the above role and select VPC and subnets
+       b)select cluster end point access( in our case select public)
+Step3) Enable logging if we want
+Step4) if we want to add Amazon  Eks add-ons then we can add other wise no need
+Step5) change Eks add-ons settings like version and others
+Step6) review and create the cluster
+
+
+Step1)
+ a)Create rule for the EKS node group
+ b) while create node role select use case is EC2 instance only 
+c) Add the below policies while creating the role
+AmazonEKSWorkerNodePolicy,
+ AmazonEKS_CNI_Policy,
+Amazon container registry read only policy
+Step2) a) select Ami type , instance type and disk size 
+            b) node group scaling configurations
+Step3) select the subnet where we need  to create nodes
+
 minikube:
 ------------
 Create ec2 instance with t2 medium  and ubuntu 22.05 OS
