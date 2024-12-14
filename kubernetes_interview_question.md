@@ -43,9 +43,6 @@ Controllers  making decision to bring up the new containers in such cases
 2)endpoints controller,
 3)namespace controller, 
 4)service accounts controller.
-
-These  are responsble for the overall health of cluster
-
 ## what is Container Runtime ?
 - It is the underline software that is used to run the containers. In our case that is happened by the docker
 - Example: docker ,rkt,	CRI-O
@@ -60,8 +57,6 @@ These  are responsble for the overall health of cluster
   are provided through various mechanisms (primarily through the apiserver) 
   It takes care of starting, stopping, and maintaining application containers organized into pods as 
   directed by the control plane.
-
-
 ## what is purpose of Kube-proxy ?
 kube-proxy is a network proxy that runs on each node in your cluster
  It maintains network rules on nodes. These network rules allow network communication to your Pods from network sessions inside or outside of your cluster.
@@ -93,18 +88,6 @@ Group of worker nodes is called cluster
                                                 2) kind:
                                                 3) metadata:
                                                 4) spec
-
-# kubectl run nginx  --image nginx   ----To run the nginx pod form docker image
-#kubectl    get    pods    -----> To get the running pods
-# kubectl   get    nodes    ----> To get the working nodes in the cluster
-# kubectl describe pods    ----> To know the more information about the pods
-# kubectl create namespace qa
-#kubectl get  namespaces
-# kubectl get pods --namespace=dev
-# kubectl get deployment --namespace=dev
-
-##################################################
-
 ## what is the difference between Replication Controller and Replication set
   ## Replication Controller;
 -------------------
@@ -143,165 +126,98 @@ ReadOnlyMany -- the volume can be mounted read-only by many nodes
 ReadWriteMany -- the volume can be mounted as read-write by many nodes
 
 
-Reclaim Policy in PV
--------------------
+## what are the Reclaim Policy in PV
 Current reclaim policies are:
+- Retain -- manual reclamation
+- Recycle -- basic scrub (rm -rf /thevolume/*)
+- Delete -- associated storage asset such as AWS EBS, GCE PD, Azure Disk, or OpenStack Cinder volume is deleted
 
-Retain -- manual reclamation
-Recycle -- basic scrub (rm -rf /thevolume/*)
-Delete -- associated storage asset such as AWS EBS, GCE PD, Azure Disk, 
-or OpenStack Cinder volume is deleted
-
-PVC Claim:
+## what are the PVC Claim:
 -------------
-Claims can specify a label selector to further filter the set of volumes. 
-Only the volumes whose labels match the selector can be bound to the claim. 
-The selector can consist of two fields:
-
-matchLabels - the volume must have a label with this value
-
-matchExpressions - a list of requirements made by specifying key, 
-list of values, and operator that relates the key and values. 
-Valid operators include In, NotIn, Exists, and DoesNotExist.
+- Claims can specify a label selector to further filter the set of volumes. 
+ Only the volumes whose labels match the selector can be bound to the claim. 
+ The selector can consist of two fields:
+- matchLabels - the volume must have a label with this value
+- matchExpressions - a list of requirements made by specifying key, 
+  list of values, and operator that relates the key and values. 
+  Valid operators include In, NotIn, Exists, and DoesNotExist.
 
 Kubernetes Deployment;
 ----------------------
 # cat siva-deployment.yaml 
 
-#kubectl create -f nginx-deployment.yaml
-#kubectl describe deployments nginx-deployment
-#kubectl rollout status deployment.v1.apps/nginx-deployment
-kubectl rollout history deployment.v1.apps/nginx-deployment
-#kubectl rollout undo deployment.v1.apps/nginx-deployment
-
-# how to increase and decrease the replicas count(sacle in or scale out)
+## how to increase and decrease the replicas count(sacle in or scale out)
   `
   kubectl scale deployment.v1.apps/nginx-deployment --replicas=10
   `
-# how to autoscale the replicas count
+## how to autoscale the replicas count
 `
 kubectl autoscale deployment.v1.apps/nginx-deployment --min=10 --max=15 --cpu-percent=80
 `
 
-# how to resume the deployment ?
+## how to resume the deployment ?
 `
 kubectl rollout resume deployment.v1.apps/nginx-deployment
 `
-
-
-# what are the reason for deployment fail
+## what are the possible reasons for deployment failing ?
 - Insufficient quota
 - Readiness probe failures
 - Image pull errors
 - Insufficient permissions
 - Limit ranges
 - Application runtime misconfiguration
+## what are kubernet Networking plugins ?
+- CNI plugins such as Calico / Weavenet, flannel
 
-Kubernet Networking:
---------------------
-CNI plugins such as Calico / Weavenet, 
-packaging tools such as HELM charts.
-LTE FCAPS
-
-A ConfigMap
-A ConfigMap is an API object used to store non-confidential data in key-value pairs. Pods can consume ConfigMaps as environment variables, command-line arguments, or as configuration files in a volumes 
-A ConfigMap allows you to decouple environment-specific configuration from your container images
-# Kubectl create -f config-map.yaml
-# kubectl get configmaps
+## What is the purpsoe ConfigMap in kubernetes ?
+- A ConfigMap is an API object used to store non-confidential data in key-value pairs. Pods can 
+  consume ConfigMaps as environment variables, command-line arguments, or as configuration files in a 
+  volumes 
+- A ConfigMap allows you to decouple environment-specific configuration from your container images
+## waht is the purpose of Secrets in kubernetes ?
+- A Secret is an object that contains a small amount of sensitive data such as a password, a token, or 
+ a key. 
+- Users can create secrets and the system also creates some secrets.
  
-#################################################################
-Secrets
-A Secret is an object that contains a small amount of sensitive data such as a password, a token, or a key. 
-Users can create secrets and the system also creates some secrets.
- # kubectl get secrets
- # kubectl get secrets mysecret -o ymal
- 
-#######################################
+## Pod Networking:
+ 1)Every pod should have  an IP Address
+ 2) Every pod should be able to communicate with  every pod in the same node
+ 3) Every pod should be able to communicate with every pod on other nodes without NAT
 
-
-
-
-Pod Networking:
-1)Every pod should have  an IP Address
-2) Every pod should be able to communicate with  every pod in the same node
-3) Every pod should be able to communicate with every pod on other nodes without NAT
- 
-Waveworks
-flannel
- 
-
-
-Kubernetes Ingress
-
-It is an API object that is used to  access the services in a cluster from outside , typically HTTP.
-Ingress may provide load balancing, SSL termination and name-based virtual hosting
- 
-Traffic routing is controlled by rules  which are defined on the Ingress resource.
-
-You must have an ingress controller to satisfy an Ingress. Only creating an Ingress resource has no effect.
-You may need to deploy an Ingress controller such as ingress-nginx. You can choose from a number of Ingress controllers
- 
-
-What is the difference between config map and secret? (Differentiate the answers as with examples)
-Config maps ideally stores application configuration in a plain text format whereas Secrets store sensitive data like password in an encrypted format. Both config maps and secrets can be used as volume and mounted inside a pod through a pod definition file.
-Config map:
-kubectl create configmap myconfigmap--from-literal=env=dev
-
-kubectl create secret generic mysecret --from-file=./username.txt --from-file=./password.txt
------------------------------------------------------------------------------
-If a node is tainted, is there a way to still schedule the pods to that node?
-When a node is tainted, the pods don't get scheduled by default, however, if we have to still schedule a pod to a tainted node we can start applying tolerations to the pod spec.
-Apply a taint to a node:
-kubectl taint nodes node1 key=value:NoSchedule
---------------------------------------------------------------------
-Can we use many claims out of a persistent volume? Explain?
-The mapping between persistentVolume and persistentVolumeClaim is always one to one. Even When you delete the claim, PersistentVolume still remains as we set persistentVolumeReclaimPolicy is set to Retain and It will not be reused by any other claims. Below is the spec to create the Persistent Volume.
----------------------------------------------------------------------------------
-What kind of object do you create, when your dashboard like application, queries the Kubernetes API to get some data?
-
-You should be creating serviceAccount. A service account creates a token and tokens are stored inside a secret object. 
-By default Kubernetes automatically mounts the default service account. However, we can disable this property by setting automountServiceAccountToken: 
-false in our spec. Also, note each namespace will have a service account
-
---------------------------------------------------------------------------------
-What is the difference between a Pod and a Job? Differentiate the answers as with examples)
-A Pod always ensure that a container is running whereas the Job ensures that the pods run to its completion. Job is to do a finite task.
-Examples:
-kubectl run mypod1 --image=nginx --restart=Never
-kubectl run mypod2 --image=nginx --restart=onFailure
-kubectl get job
--------------------------------------------------------------------
-How do you deploy a feature with zero downtime in Kubernetes?
-By default Deployment in Kubernetes using RollingUpdate as a strategy. Let's say we have an example that creates a deployment in Kubernetes
-kubectl run nginx --image=nginx # creates a deployment
-kubectl get deploy
-Now let’s assume we are going to update the nginx image
-kubectl set image deployment nginx nginx=nginx:1.15 # updates the image
-Now when we check the replica sets
-#kubectl get replicasets 
-# get replica sets
-
-From the above, we can notice that one more replica set was added and then the other replica set was brought down
-kubectl rollout status deployment nginx
-# check the status of a deployment rollout
-kubectl rollout history deployment nginx
- # check the revisions in a deployment
-○ → kubectl rollout history deployment nginx
-deployment.extensions/nginx
-
-# Q8. What do you understand by load balancer in Kubernetes?
+## Q8. What do you understand by load balancer in Kubernetes?
 A load balancer is one of the most common and standard ways of exposing service. There are two types of load balancer used based on the working environment i.e. 
 - Internal Load Balancer 
 - External Load Balancer. 
-# Q10.  What do you understand by Cloud controller manager?
+## Q10.  What do you understand by Cloud controller manager?
 The Cloud Controller Manager is responsible for persistent storage, network routing, abstracting the cloud-specific code from the core Kubernetes specific code, and managing the communication with the underlying cloud services. 
 
-# Q13. What is a Headless Service?
-Headless Service is similar to that of a ‘Normal’ services but does not have a Cluster IP. This service enables you to directly reach the pods without the need of accessing it through a proxy.
+##  What is a Headless Service?
+- Headless Service is similar to that of a ‘Normal’ services but does not have a Cluster IP. This 
+  service enables you to directly reach the pods without the need of accessing it through a proxy.
 
-# Q15. What are federated clusters?
-Multiple Kubernetes clusters can be managed as a single cluster with the help of federated clusters. So, you can create multiple Kubernetes clusters within a data center/cloud and use federation to control/manage them all at one place.
-# Scenario 5: Consider a multinational company with a very much distributed system, looking forward to solving the monolithic code base problem.How do you think the company can solve their problem?
-Solution
-Well, to solve the problem, they can shift their monolithic code base to a microservice design and then each and every microservices can be considered as a container.
-So, all these containers can be deployed and orchestrated with the help of Kubernetes
+## What are federated clusters?
+- Multiple Kubernetes clusters can be managed as a single cluster with the help of federated clusters. 
+  So, you can create multiple Kubernetes clusters within a data center/cloud and use federation to 
+  control/manage them all at one place.
+## Consider a multinational company with a very much distributed system, looking forward to solving the monolithic code base problem.How do you think the company can solve their problem?
+- they can shift their monolithic code base to a microservice design and then each and every 
+  microservices can be considered as a container.So, all these containers can be deployed and 
+  orchestrated with the help of Kubernetes
+
+## kubenetes commands  
+```
+kubectl run nginx  --image nginx   ----To run the nginx pod form docker image
+kubectl    get    pods    -----> To get the running pods
+kubectl   get    nodes    ----> To get the working nodes in the cluster
+kubectl describe pods    ----> To know the more information about the pods
+kubectl create namespace qa
+kubectl get  namespaces
+kubectl get pods --namespace=dev
+kubectl get deployment --namespace=dev
+kubectl create -f nginx-deployment.yaml
+kubectl describe deployments nginx-deployment
+kubectl rollout status deployment.v1.apps/nginx-deployment
+kubectl rollout history deployment.v1.apps/nginx-deployment
+kubectl rollout undo deployment.v1.apps/nginx-deployment
+
+```
