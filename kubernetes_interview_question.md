@@ -1,30 +1,44 @@
 
-# What is purpose of API Server: 
-----------
+## Difference between docker swam and kubernetes 
+  ## Created and maintained by Dotcker Inc
+   Developer community is not big as K8s
+   It is suitable for small applications
+   It is suitable for 10 to 20 container in pod env
+   To setup cluster is very easy 
+   containers are scaled up and down manually 
+   Scaling is faster than kubernetes
+   Rollback are not automatically done
+   ## Kubernetes
+   Create by Google and Now maintained  by the CNFC
+   It has huge developer community
+   It is suitable for complex architecture
+   It suitable for  1000 and 2000 containers in prod
+   To setup cluster is complicated
+   Based on the traffic containers are scaled up and down automatically
+   Scaling up is easy
+   Rollbacks are automatically done
+## What is purpose of API Server?
 It acts as the front end for kubernetes. Or it acts as  the Gatekeeper of Kubernetes cluster.Kubectl is used to connect the api server
 Users , management devices and command line interfaces these all are talk to the api server to interact with kubernetes cluster
 The Kubernetes API server validates and configures  the api objects which are pods, services, replicationcontrollers, and Deployments.
 It is responsble for expose the  various apis
 
-# what is the purpose of Etcd:
-----
+## what is the purpose of Etcd?
  It is distributed and reliable key value store used by kubernetes to store all the data  which required to manage the kubernetes cluster
 it stores the entire state of the cluster: its configuration, specifications, and the statuses of the running workloads
 
-# What is the purpose of Scheduler :
-----------
+## What is the purpose of Scheduler ?
 it is Responsible for distributing the work or containers across multiple Worker nodes. It looks for the newly created containers and assign them to the nodes
 Scheduler schedules the pods  based on the specification in the configuration file
 
 The scheduler  schedules the pods based on the resource requirements, quality of service requirements, hardware/software/policy constraints, affinity and anti-affinity specifications, data locality, inter-workload interference, deadlines, and so on.
 
-# what is purpsoe of Controllers:
------------
+## what is purpsoe of Controllers ?
 The controllers are the brain behind the orchestration. They are responsible for noticing and the responding when containers  nodes and end pointing goes down
 
 Controllers  making decision to bring up the new containers in such cases
 
-# what are Types Of Controllers:
+## what are Types Of Controllers ?
 1)replication controller,
 2)endpoints controller,
 3)namespace controller, 
@@ -32,13 +46,11 @@ Controllers  making decision to bring up the new containers in such cases
 
 These  are responsble for the overall health of cluster
 
-# what is Container Runtime:
------------------
+## what is Container Runtime ?
 - It is the underline software that is used to run the containers. In our case that is happened by the docker
 - Example: docker ,rkt,	CRI-O
 
-# what is the purose of Kubelet:
-------
+## what is the purose of Kubelet?
 - It is an agent that is running on each worker node. Agents are responsible for running the 
   containers on the node as expected.
 
@@ -50,30 +62,27 @@ These  are responsble for the overall health of cluster
   directed by the control plane.
 
 
-# what is purpose of Kube-proxy:
-----------
+## what is purpose of Kube-proxy ?
 kube-proxy is a network proxy that runs on each node in your cluster
  It maintains network rules on nodes. These network rules allow network communication to your Pods from network sessions inside or outside of your cluster.
 It is responsible for routing traffic to the appropriate container based on IP and port number of the incoming request
-# What is the Pod:
----
+## What is the Pod ?
+
 Group of containers is called pod
 Most of the cases pod contains single container only but some case pod contains helper container along the main container
 If main container dies then  helper container also goes to die
 If load on the application Increases then we will not increase no of containers in the pod
 Just we are increasing no of pods in the nodes
 
-# what is Node in the kubernetes cluster(k8):
------
+## what is Node in the kubernetes cluster(k8):
 it contains group of pods
 If load on the application increases more then we will increase no of workers nodes in the cluster
 
-# what k8 Cluster:
--------
+## what k8 Cluster:
 Group of worker nodes is called cluster
 
 
-# What are the main feild  it the Kubernetes file:
+## What are the main feild  it the Kubernetes file:
 - It contains mainly four fields : 1) api version:
                                                 2) kind:
                                                 3) metadata:
@@ -90,14 +99,14 @@ Group of worker nodes is called cluster
 
 ##################################################
 
-# what is the difference between Replication Controller and Replication set
-  # Replication Controller;
+## what is the difference between Replication Controller and Replication set
+  ## Replication Controller;
 -------------------
   - Replication  controller  is responsible for making ensure that  the  specified no  of pods (1 or 
     100)running
   - in the nodes at all the time as mentioned in the replication controller
   - The replication controller only supports equality-based selector It has lables
-  # Replication set:
+  ## Replication set:
   - the replica set supports set-based selector.
   - It has Match Lables
   - This will help matchExpression to understand the matching condition we have defined and in the 
@@ -109,20 +118,19 @@ Group of worker nodes is called cluster
     operation which is used by matchlabel to find details
 
 
-pv:Persistent Voulme:
----------------------
+## what is the Persistent Voulme(PV) ?
 A PersistentVolume (PV) is a piece of storage in the cluster that has been provisioned
 by an administrator or dynamically provisioned using Storage Classes
 
 This API object captures the details of the implementation of the storage, be that NFS, iSCSI,
 
-pvc:Persistent volume Claim;
+## what is the Persistent volume Claim(PVC)?
 ---------------------------
 A PersistentVolumeClaim (PVC) is a request for storage by a user. 
 It is similar to a Pod. Pods consume node resources and PVCs consume PV resources.
 Pods can request specific levels of resources (CPU and Memory).
 
-PV access modes:
+## what are the PV access modes ?
 ----------------
 ReadWriteOnce -- the volume can be mounted as read-write by a single node
 ReadOnlyMany -- the volume can be mounted read-only by many nodes
@@ -222,26 +230,7 @@ Pod Networking:
 Waveworks
 flannel
  
-Created and maintained by Dotcker Inc
----------------------------------
-Developer community is not big as K8s
-It is suitable for small applications
-It is suitable for 10 to 20 container in pod env
-To setup cluster is very easy 
-containers are scaled up and down manually 
-Scaling is faster than kubernetes
-Rollback are not automatically done
 
-Kubernetes
-----------
- Create by Google and Now maintained  by the CNFC
-It has huge developer community
-It is suitable for complex architecture
-It suitable for  1000 and 2000 containers in prod
-To setup cluster is complicated
-Based on the traffic containers are scaled up and down automatically
-Scaling up is easy
-Rollbacks are automatically done
 
 Kubernetes Ingress
 
