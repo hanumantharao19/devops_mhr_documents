@@ -80,6 +80,12 @@ If load on the application increases more then we will increase no of workers no
 
 ## what k8 Cluster:
 Group of worker nodes is called cluster
+## kubernetes components running on which ports
+ - ETCD is running on port  ---2379
+ - Kbuelet is running on port --10250
+ - Kube-scheduler is running on port ----10251
+ - Kube-controller-manager is running on port ---10252
+ - services are running on ports 30000-32677
 
 
 ## What are the main feild  it the Kubernetes file:
@@ -168,34 +174,28 @@ Kubernetes Deployment;
 kubectl rollout history deployment.v1.apps/nginx-deployment
 #kubectl rollout undo deployment.v1.apps/nginx-deployment
 
-Increase and decrease pods: scale in or scale out
----------------------------------------
-kubectl scale deployment.v1.apps/nginx-deployment --replicas=10
-
-Autoscalling:
------------
-
+# how to increase and decrease the replicas count(sacle in or scale out)
+  `
+  kubectl scale deployment.v1.apps/nginx-deployment --replicas=10
+  `
+# how to autoscale the replicas count
+`
 kubectl autoscale deployment.v1.apps/nginx-deployment --min=10 --max=15 --cpu-percent=80
+`
 
-Update image after deployment:
-------------------------------
-kubectl set resources deployment.v1.apps/nginx-deployment -c=nginx --limits=cpu=200m,memory=512Mi
-
-If you pasue deployment then you can resume deployment;
--------------------------------------------------
+# how to resume the deployment ?
+`
 kubectl rollout resume deployment.v1.apps/nginx-deployment
+`
 
 
-Failed Deployment Reason;
--------------------------
-Your Deployment may get stuck trying to deploy its newest ReplicaSet without ever completing. This can occur due to some of the following factors:
-
-Insufficient quota
-Readiness probe failures
-Image pull errors
-Insufficient permissions
-Limit ranges
-Application runtime misconfiguration
+# what are the reason for deployment fail
+- Insufficient quota
+- Readiness probe failures
+- Image pull errors
+- Insufficient permissions
+- Limit ranges
+- Application runtime misconfiguration
 
 Kubernet Networking:
 --------------------
@@ -217,11 +217,10 @@ Users can create secrets and the system also creates some secrets.
  # kubectl get secrets mysecret -o ymal
  
 #######################################
-ETCD is running on port  ---2379
-Kbuelet is running on port --10250
-Kube-scheduler is running on port ----10251
-Kube-controller-manager is running on port ---10252
-Services are running on ports 30000-32677
+
+
+
+
 Pod Networking:
 1)Every pod should have  an IP Address
 2) Every pod should be able to communicate with  every pod in the same node
@@ -290,8 +289,6 @@ kubectl rollout history deployment nginx
 ○ → kubectl rollout history deployment nginx
 deployment.extensions/nginx
 
-# Q6.  What is ETCD?
-Etcd is a distributed key-value store used for coordinating between distributed work. So, Etcd stores the configuration data of the Kubernetes cluster, representing the state of the cluster at any given point in time.
 # Q8. What do you understand by load balancer in Kubernetes?
 A load balancer is one of the most common and standard ways of exposing service. There are two types of load balancer used based on the working environment i.e. 
 - Internal Load Balancer 
