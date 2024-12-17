@@ -282,6 +282,19 @@ spec:
 - kubectl get pods -n dev ---> list the all pods in the dev namespace
 - Reference: https://kubernetes.io/docs/tasks/administer-cluster/namespaces/
 ----------------------
+application.properties
+```
+name=hanu
+lives=34578
+enemies.cheat=true
+enemies.cheat.level=noGoodRotten
+secret.code.passphrase=UUDDLRLRBABAS
+secret.code.allowed=true
+secret.code.lives=30
+```
+```
+kubectl create configmap gmae-config --from-file=application.properties
+```
 ## creae config mpa with application property file
 
 configmap.yaml
@@ -299,6 +312,9 @@ data:
     secret.code.passphrase=UUDDLRLRBABAS
     secret.code.allowed=true
     secret.code.lives=30
+```
+```
+kubectl create -f configmap.yaml
 ```
 ```
 apiVersion: v1
