@@ -85,15 +85,42 @@ if [ $a -gt $b ]
 	  echo " number a is less then number b"
 fi
 ```
-## For Loop example
+## Script9(print 1 to 10 numbers) 
+```
+#!/bin/bash
+for x in {1..10}
+do
+        echo "my number is $x"
+
+done
+```
+or
+
+```
+#/bin/bash
+for (( i=0; i>=10; i-- ))
+do
+   echo "my numbers $i"
+done
+```
+## Script 10 (print numbers form 10 to 1)
+```
+#/bin/bash
+for (( i=10; i>=0; i-- ))
+do
+   echo "my numbers $i"
+done
+```
+# Script 11 (print names with loop)
 ```
 #!/bin/bash
  names=" hanu mali suresh mahesh ravi haswi"
- for name in ${images};
+ for name in ${names};
  do
   echo "my name is ${name}
  done
 ```
+# Script 12 pull the images form one registry and push to other registry 
 ```
 #!/bin/bash
  images=" httpd nginx mysql openjdk"
@@ -106,6 +133,22 @@ fi
   docker push ${repo}/${img}
  done
 ```
+# script 13 Start and stop the ec2 instances with shell script
+```
+InstanceID=$1
+State=$2
+if [ "$State" = "Start" ]
+then
+  aws ec2 start-instances --instance-ids $InstanceID
+  echo Instance $InstanceID Started
+elif [ "$State" = "Stop" ]
+then
+  aws ec2 stop-instances --instance-ids $InstanceID
+  echo Instance $InstanceID Stopped
+fi
+
+```
+
 ## check instances id and start and stop ec2 instances with functions
 ```
 # /usr/bin/bash
@@ -218,17 +261,8 @@ fi
 
 exit $EXIT
 ```
-## To Start And stop ec2 instances with jenkins jobs
-```
-if [ "$State" = "Start" ]
-then
-  aws ec2 start-instances --instance-ids $InstanceID
-  echo Instance $InstanceID Started
-elif [ "$State" = "Stop" ]
-then
-  aws ec2 stop-instances --instance-ids $InstanceID
-  echo Instance $InstanceID Stopped
-fi
+## To Start And stop ec2 instances with shell scripts
+
 ```
 ## upload files into the bucket
 ```
@@ -277,30 +311,7 @@ do
 done
 
 ```
-## prinit 1 to 10 numbers
-```
-#!/bin/bash
-for x in {1..10}
-do
-        echo "my number is $x"
 
-done
-```
-Print the numbers in reverse order
-```
-#/bin/bash
-for (( i=10; i>=0; i-- ))
-do
-   echo "my numbers $i"
-done
-```
-```
-#/bin/bash
-for (( i=0; i>=10; i-- ))
-do
-   echo "my numbers $i"
-done
-```
 # Replace 'yourfile.txt' with the name of your file
 file="yourfile.txt"
 
@@ -314,6 +325,78 @@ if [ -e "$file" ]; then
 else
   echo "File not found: $file"s
 fi
+
+
+####################
+```
+echo "HELLO"
+```
+```
+read x
+printf "%.3f\n" `echo "$x" | bc -l`
+```
+```
+#!/bin/bash
+read X
+read Y
+if (( $X > $Y ))
+then
+    echo "X is greater than Y"
+fi
+
+if (( $X == $Y))
+then
+    echo "X is equal to Y"
+fi
+
+if(( $X < $Y))
+then
+    echo "X is less than Y"
+fi
+```
+```
+#!/bin/bash
+#Easier way is to do using for loop
+read N
+sum=0
+for ((i=0; i<N; i++));  do
+    read num 
+    sum=$((sum + num))
+done
+avg=$(echo "scale=4; $sum / $N" | bc)
+printf "%0.3f" $avg
+
+```
+```
+#!/bin/bash
+read word
+if [[($word == 'y') || ($word == 'Y')]]
+then
+    echo "YES"
+        elif [[($word == 'n') || ($word == 'N')]]
+        then
+        echo "NO"
+fi
+
+```
+
+```
+#!/bin/bash
+for i in {1..99..2}
+do
+    echo $i    
+done
+
+```
+```
+#!/bin/bash
+for i in {1..50}
+do
+    echo $i
+done
+```
+
+
 
 
 
