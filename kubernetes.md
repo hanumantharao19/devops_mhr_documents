@@ -282,6 +282,7 @@ spec:
 - kubectl get pods -n dev ---> list the all pods in the dev namespace
 - Reference: https://kubernetes.io/docs/tasks/administer-cluster/namespaces/
 ----------------------
+## create configmap through Imperative mode
 application.properties
 ```
 name=hanu
@@ -295,7 +296,7 @@ secret.code.lives=30
 ```
 kubectl create configmap gmae-config --from-file=application.properties
 ```
-## creae config mpa with application property file
+## create configmap in  Declarative Mode
 
 configmap.yaml
 ```
@@ -316,7 +317,7 @@ data:
 ```
 kubectl create -f configmap.yaml
 ```
-```
+## inject the configmap into pod
 apiVersion: v1
 kind: Pod
 metadata:
@@ -336,7 +337,8 @@ spec:
   - name: config
     configMap:
       # Provide the name of the ConfigMap you want to mount.
-      name: mhr-config
+      name: mhr-co
+      
       # An array of keys from the ConfigMap to create as files
       items:
       - key: "application.properties"
