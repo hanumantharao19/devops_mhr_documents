@@ -132,7 +132,6 @@ done
   docker tag ${img} ${repo}/${img}
   docker push ${repo}/${img}
  done
-```
 # script 13 Start and stop the ec2 instances with shell script
 ```
 InstanceID=$1
