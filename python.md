@@ -6,11 +6,11 @@
 - replace
 - strip
 - format
-## print the name
+## 1) print the name
 ```
 print('this is hanumantharao')
 ```
-## data types in python
+## 2) data types in python
 ```
 age =  20   #int variable
 price = 19.23  #float variable
@@ -22,14 +22,14 @@ print(first_name)
 print(are_coming)
 #Note: python is k  sensitive
 ```
-## pass the data trhough input function
+## 3) pass the data trhough input function
 ```
 name = input("what is you name?")
 print("hello" + name)
 
 # Note: we can add(concatenate) two string in python
 ```
-## Converting data types
+## 4) Converting data types
 ```
 date_of_birth =  input("enter you birth year: ")
 age = 2022 - int( date_of_birth )
@@ -40,7 +40,7 @@ float()  # it is used to convert into float
 bool()  # it is used to convert into bool
 str()  # it is used to convert into string
 ```
-### convert str to float and float to str
+### 5) convert str to float and float to str
 ```
 first_number = input("enter first number:")
 second_number = input("enter second number:")
@@ -57,7 +57,7 @@ print("sum result is “ + str(sum)")
 #Note: input function always return string  
 
 ```
-### if and else
+### 6) if and else
 ```
 exam = True
 if exam: 
@@ -72,7 +72,7 @@ if exam:
 else:
     print("i have failed exam")
 ```
-## if ,elif and else
+## 7) if ,elif and else
 ```
 job = input("enter your job" )
 if job == "electrical":
@@ -85,7 +85,7 @@ else:
     print("he or she not perfoming electrical work")
 ```
 
-## add two numbers 
+## 8) add two numbers 
 ```
 def addition(a,b):
    print("result:", (a+b))
@@ -98,7 +98,7 @@ def addition(a,b):
 result = addition(10,20)
 print(result)
 ```
-## Local and global varaiables
+## 9)  Local and global varaiables
 ```
 a = 100
 b = 50
