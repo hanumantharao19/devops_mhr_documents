@@ -111,4 +111,142 @@ def calculation():
 result = calculation()
 print(result)
 ```
+## 10 print the letters form the string with loop
+```
+name = "hanumantharao"
+for a in name:
+    print(a)
+for a in "ramesh":
+    print(a)
+```
+## 11) print the numbers form the list with loop
+```
+list1 = [1,2,3,4,5,6,7,8]
+
+for x in list1:
+    print(x)
+```
+## 12) print the even numbers for the list
+```
+# print even numebrs
+list1 = [1,2,3,4,5,6,7,8,9,10]
+for x in list1:
+    if x % 2 == 0:
+        print(x)
+```
+## 13) how to use inner loops
+```
+for x in [1,2,3]:
+   for y in [10,20,30]:
+        z = x*y
+        print(z)
+
+##    
+
+for x in [1,2,3]:
+   for y in [10,20,30]:
+        print(x*y)
+
+```
+## 14) print the numbers form the tuples with loop
+```
+tuple1 = (1,2,3,4,5,6,7,8,9,10)
+for a in tuple1:
+    print(a)
+```
+## 15) Print the numebrs form list with loop
+```
+list2 = [(1,2),(3,4),(5,6),(7,8),(9,10)]
+for item in list2:
+    print(item)
+
+for (a,b) in list2:
+    print(a)
+    print(b)
+
+list2 = [(1,2,11),(3,4,12),(5,6,13),(7,8,14),(9,10,15)]
+for a,b,c in list2:
+    print(c)
+
+```
+## 16) Print the values with while loop
+```
+#while loop will continue to execute a block of code while some condtion reamins ture
+# while condtion:
+  #do some thing
+# else:
+  # do some thing different
+x = 0
+while x < 5 :
+    print(f'current value of x is {x}')
+    x = x + 1
+
+x = 6
+while x < 5 :
+    print(f'current value of x is {x}')
+    x += 1
+else:
+    print( "x is not grater than 5")
+```
+## 17) how to use pass,continue and break
+```
+#break,continue,pass
+# break : breack out the current closest closing loop
+# continue: goes to the top of the closest closing loop
+# pass: Does Nothing at all
+# how to use pass 
+x = [1,2,3,4]
+for a in x:
+    pass
+print("script complete successfully")
+
+
+#how to use continue
+x = [1,2,3,4,5,6,7,8,9,10]
+for a in x:
+    if a == 5:
+        continue
+    print(a)
+
+# how to use break in for loop
+x = [1,2,3,4,5,6,7,8,9,10]
+for a in x:
+    if a == 6:
+        break
+    print(a)
+
+# how to use break in while loop
+
+x = 0
+while x < 5:
+    if x == 2:
+     break
+    print(x)
+    x = x + 1
+```
+## 18) how to use range function
+```
+for number in range(10):
+    print(number)
+
+
+for number in range(5,25):
+    print(number)
+
+
+for number in range(5,25,5):
+    print(number)
+```
+## 19) how to use zip function
+```
+list1 = ["hanu","haswi","sras"]
+list2 = ["guntur","usa","hyd"]
+for a in zip(list1,list2):
+    print(a)
+```
+## 19) 
+
+
+
+
 
