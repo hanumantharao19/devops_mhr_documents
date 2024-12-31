@@ -1,11 +1,3 @@
-## Built in functions in python
-- len
-- upper
-- lower
-- split
-- replace
-- strip
-- format
 ## 1) print the name
 ```
 print('this is hanumantharao')
@@ -57,7 +49,82 @@ print("sum result is “ + str(sum)")
 #Note: input function always return string  
 
 ```
-### 6) if and else
+## 6) slicing operation form list
+```
+names = ["hanu","ram","ramesh","suresh"]
+print(names[:])
+print(names[ ::-4])
+print(names[:2])
+print(names[1:])
+print(names[:-1])
+print(names[::-1])
+print(len(names))
+```
+
+## 7) insert,append,reverse and sort opeations on list
+```
+# Methods which are used for list
+##append and insert methods
+list = ["hanu","haswi","abhay","sras"]
+print(list)
+list.append("suresh") # add the string at the end of the list
+print(list)
+list.insert(1,"hanuman")  # add the string at index postion
+print(list)
+
+### swap the strings###
+names = ["hyderabad","guntur","vijayawada"]
+temp = names[0]
+names[0] = names[1]
+names[1] = temp
+print(names)
+### Alternative approach
+names = ["hyderabad","guntur","vijayawada"]
+names[0],names[1] = names[1],names[0]
+print(names)
+
+## Sort method###
+numbers = [40,20,100,467,500,67,700,86,900]
+numbers.sort()  ## it print the numbers in assending orders
+print(numbers)
+
+## reverse method##
+numbers = [40,20,100,467,500,67,700,86,900]
+numbers.reverse()
+print(numbers)
+
+### clear the index
+list = ["hanu","ramesh","suresh","ganesh"]
+list.clear()
+print(list)
+
+```
+## 8) average the values in the list
+```
+# iterating Lists
+marks = [68,79,81,96,76,99]
+total = 0
+for x in marks:
+    total += x
+    average = total/len(marks)
+print(average)
+```
+Or
+```
+numbers = [10,20,30,40,50,60]
+totatl_amount = 0
+for number in range(0,len(numbers)):
+    totatl_amount = totatl_amount + numbers[number]
+print(totatl_amount)
+```
+
+## 9) find elements in list
+```
+names = ["hanu","ram","sras","mahesh","suresh"]
+print("hanu" in names)
+print("hanu" not in names)
+```
+### 10) if and else
 ```
 exam = True
 if exam: 
@@ -72,7 +139,31 @@ if exam:
 else:
     print("i have failed exam")
 ```
-## 7) if ,elif and else
+## 11) if and else
+```
+list = ["hanu","mahesh","surehs","ramesh"]
+if "hanu" in list:
+    print("Element is available in the list")
+else:
+    print("Element is  not  available in the list")
+```
+
+### 12) elment is available or not with for loop
+```
+list = ["mahesh","hanu","suresh","ramesh"]
+available = ""
+name = "ram"
+for a in list:
+    if a == name:
+       available = True
+       break
+if available:
+    print("Element is avaialble in the list")
+else:
+    print("Element is not avaialble in the list")
+```
+
+## 13) if ,elif and else
 ```
 job = input("enter your job" )
 if job == "electrical":
@@ -85,20 +176,8 @@ else:
     print("he or she not perfoming electrical work")
 ```
 
-## 8) add two numbers 
-```
-def addition(a,b):
-   print("result:", (a+b))
-addition(10,30)
-```
-or
-```
-def addition(a,b):
-    return (a+b)  
-result = addition(10,20)
-print(result)
-```
-## 9)  Local and global varaiables
+
+## 14)  Local and global varaiables
 ```
 a = 100
 b = 50
@@ -111,7 +190,7 @@ def calculation():
 result = calculation()
 print(result)
 ```
-## 10 print the letters form the string with loop
+## 15) print the letters form the string with loop
 ```
 name = "hanumantharao"
 for a in name:
@@ -119,14 +198,14 @@ for a in name:
 for a in "ramesh":
     print(a)
 ```
-## 11) print the numbers form the list with loop
+## 16) print the numbers form the list with loop
 ```
 list1 = [1,2,3,4,5,6,7,8]
 
 for x in list1:
     print(x)
 ```
-## 12) print the even numbers for the list
+## 17) print the even numbers for the list
 ```
 # print even numebrs
 list1 = [1,2,3,4,5,6,7,8,9,10]
@@ -134,7 +213,43 @@ for x in list1:
     if x % 2 == 0:
         print(x)
 ```
-## 13) how to use inner loops
+or
+```
+# list the even numbers
+list = [10,15,20,40,60,80]
+for a in list:
+    if a % 2 == 0:
+      print(a, end=" ")
+```
+
+or
+```
+list = [10,15,13,17,20,40,34,40]
+for a in list:
+    if a % 2 != 0:
+        print(a ,end=" ")
+```
+or
+```
+number1 = int(input("enter first number"))
+number2 = int(input("enter final number"))
+for a  in range(number1,number2+1):
+    if a % 2 == 0:
+     print(a , end=" ")
+```
+## 18) opend the values
+```
+list1 = [1, 2, 3]
+list2 = [4, 5, 6]
+
+result = []
+for i in range(len(list1)):
+    result.append(list1[i] + list2[i])
+
+print(result)  # Output: [5, 7, 9]
+```
+
+## 19) how to use inner loops
 ```
 for x in [1,2,3]:
    for y in [10,20,30]:
@@ -148,13 +263,13 @@ for x in [1,2,3]:
         print(x*y)
 
 ```
-## 14) print the numbers form the tuples with loop
+## 20) print the numbers form the tuples with loop
 ```
 tuple1 = (1,2,3,4,5,6,7,8,9,10)
 for a in tuple1:
     print(a)
 ```
-## 15) Print the numebrs form list with loop
+## 21) Print the numebrs form list with loop
 ```
 list2 = [(1,2),(3,4),(5,6),(7,8),(9,10)]
 for item in list2:
@@ -169,7 +284,7 @@ for a,b,c in list2:
     print(c)
 
 ```
-## 16) Print the values with while loop
+## 22) Print the values with while loop
 ```
 #while loop will continue to execute a block of code while some condtion reamins ture
 # while condtion:
@@ -188,7 +303,7 @@ while x < 5 :
 else:
     print( "x is not grater than 5")
 ```
-## 17) how to use pass,continue and break
+## 23) how to use pass,continue and break
 ```
 #break,continue,pass
 # break : breack out the current closest closing loop
@@ -224,7 +339,7 @@ while x < 5:
     print(x)
     x = x + 1
 ```
-## 18) how to use range function
+## 24) how to use range function
 ```
 for number in range(10):
     print(number)
@@ -237,14 +352,77 @@ for number in range(5,25):
 for number in range(5,25,5):
     print(number)
 ```
-## 19) how to use zip function
+## 25) how to use zip function
 ```
 list1 = ["hanu","haswi","sras"]
 list2 = ["guntur","usa","hyd"]
 for a in zip(list1,list2):
     print(a)
 ```
-## 19) 
+## 26) print the input value by using function
+
+```
+def input_number():
+     return input("enter your number:")
+result = input_number()
+print(result)
+print(type(result))
+```
+## 27) add two numbers 
+```
+def addition(a,b):
+   print("result:", (a+b))
+addition(10,30)
+```
+or
+```
+def addition(a,b):
+    return (a+b)  
+result = addition(10,20)
+print(result)
+```
+or
+```
+def sum_of_numbers(num1,num2):
+    return num1+num2
+result = sum_of_numbers(10,20)
+print(result)
+```
+## 28) calculate the salary for one year
+```
+def salary_of_employee(months):
+   return int(input("enter salry per month:"))*months
+total_salary = salary_of_employee(30)
+print(total_salary)
+
+```
+## 29) multiplication
+```
+def multiply_values(list):
+    multiplied_values = []
+    for x in list:
+        multiplied_values.append(x*2)
+    return multiplied_values
+result = multiply_values([10,20,30,40])
+print(result)
+```
+## 30) function
+
+```
+def main():
+     name = get_name()
+     house = get_home_name()
+     print(f"{name} form {house}")
+def get_name():
+    return input("name")
+def get_home_name():
+     return input("home name")
+if __name__ == "__main__":
+     main()
+```
+
+
+
 
 
 
