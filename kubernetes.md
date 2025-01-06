@@ -94,7 +94,54 @@ Start the minikube
 ## To know cluster events and cluster info
  - kubectl get events
  - kubectl config view
+################################
+# create EKS Cluster Using EKSCTL and connect on linux machine
+## step1) Install aws cli in linux
+```
+sudo dnf install python3-pip
+pip3 install awscli --upgrade --user
+aws --version
+```
+## step2) Configure Aws credentials
+```
+aws configure
+AWS Access Key ID [None]: *******
+AWS Secret Access Key [None]: ******
+```
 
+## Step 3) Install Kubectl in Linux
+```
+curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+kubectl version
+```
+## Step 4) Install aws iam authenticator in Linux
+```
+curl -o aws-iam-authenticator https://s3.us-west-2.amazonaws.com/amazon-eks/1.21.2/2021-07-05/bin/linux/amd64/aws-iam-authenticator
+chmod +x ./aws-iam-authenticator
+sudo mv aws-iam-authenticator /usr/local/bin/
+aws-iam-authenticator version
+
+```
+## Step 5) Install EKSCTL  in linux
+curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+sudo mv /tmp/eksctl /usr/local/bin
+eksctl version
+## Step 6) Execute identity command
+```
+aws sts get-caller-identity
+```
+## step 7) Create EKS cluster with below command
+```
+eksctl create cluster --version 1.31 --region us-east-1 --node-type t2.micro --nodes 3 --name mhr-demo-cluster
+```
+## 8) Connect the EKS cluster form ec2 instance  with below command
+```
+aws eks update-kubeconfig --region us-east-1 --name mhr-demo-cluster
+kubectl get nodes
+```
+########################
 
 ## Deploy the pod in kubernetes cluster
 kubectl run hanu  --image nginx ## create the pod in command line
