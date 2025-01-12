@@ -13,4 +13,24 @@ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scrip
 chmod 700 get_helm.sh
 ./get_helm.sh
 ```
+## helm commands
+ - helm create sampleapp
+ - helm install sampleapp-release sampleapp
+ - helm list -a
+ - helm uninstall <releasename>
+ - helm upgrade <release name > <chartnmae>
+ - helm rollback <releasename>  <revision version>
+ - helm install <rleasename> --dry-run --debug <chartname>
+ - Helm template <chartname>
+ - helm lint <Chart name>
+ - helm search hub <helmchartname>
+ 
 
+
+
+
+
+   26  helm list -a
+   27  kubectl get service
+   28  kubectl get pods -o wide
+ 

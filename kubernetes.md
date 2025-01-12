@@ -142,10 +142,19 @@ aws eks update-kubeconfig --region us-east-1 --name mhr-demo-cluster
 kubectl get nodes
 ```
 ########################
+## Install helm in linux
+```
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+chmod 700 get_helm.sh
+./get_helm.sh
 
-## Deploy the pod in kubernetes cluster
-kubectl run hanu  --image nginx ## create the pod in command line
-or
+```
+
+## create the pod in kubernetes with command line
+```
+kubectl run hanu  --image nginx
+```
+## Deploy the pod in kubernetes cluster with yaml 
 ```
 apiVersion: v1
 kind: Pod
@@ -160,12 +169,24 @@ spec:
 ```
 - kubectl create -f pod.yaml  --> to create through manifest file
 
-- kubectl delete pod hanu  ---> to delete the pod
+## Delete the pod in the kubernetes cluster
+```
+kubectl delete pod hanu
+```  
 or
-- kubectl delete -f pod.yaml  --> to delete the pod
-kubectl get pods --> to list pods in default namespaces
+```
+kubectl delete -f pod.yaml
+```
+## list pods in the default namespace
+```
+kubectl get pods 
+```
 or
-kubectl get po  -->to list pods in default namespaces
+```
+kubectl get po  
+
+```
+
 kubectl exec -it <podname> /bin/bash
 
 ## Namespace:
