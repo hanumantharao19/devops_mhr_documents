@@ -82,6 +82,14 @@ Group of worker nodes is called cluster
  - Kube-controller-manager is running on port ---10252
  - services are running on ports 30000-32677
 
+## differecne between imperative and declarative mode
+## imprerative
+- kubectl run --image=nginx nginx
+- kubectl create deployment --image=nginx nginx
+
+## Declarative
+- kubectl create -f deployment.yaml
+- kubectl apply -f deployment.yaml
 
 ## What are the main feild  it the Kubernetes file:
 - It contains mainly four fields : 1) api version:

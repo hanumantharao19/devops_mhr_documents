@@ -59,9 +59,6 @@ https://www.linuxtechi.com/how-to-install-minikube-on-ubuntu
 - sudo apt install docker-ce docker-ce-cli containerd.io -y
 - sudo usermod -aG docker $USER
 - newgrp docker
-
-
-
 Install Minikube:
 ------------
 Step 1) isntall minikube
@@ -149,7 +146,6 @@ chmod 700 get_helm.sh
 ./get_helm.sh
 
 ```
-
 ## create the pod in kubernetes with command line
 ```
 kubectl run hanu  --image nginx
@@ -168,7 +164,6 @@ spec:
     - containerPort: 80
 ```
 - kubectl create -f pod.yaml  --> to create through manifest file
-
 ## Delete the pod in the kubernetes cluster
 ```
 kubectl delete pod hanu
@@ -184,24 +179,19 @@ kubectl get pods
 or
 ```
 kubectl get po  
-
+```
+## To know the details of the pod wiht bleow command
+```
+kubectl describe pod <podname>
 ```
 
+## Below command is used to login into the pod
+```
 kubectl exec -it <podname> /bin/bash
-
-## Namespace:
-- name space is noting but a virtual cluster
-- Genrall a cluster can divided into number of namespaces as 
-  per our requirement
-- by default we have some namespaces in the cluster
-- kubectl get namespaces  --> to list the namespaces
-   or 
-- kubectl get ns ---> --> to list the namespaces
-Replicaset
--------------
-Replicaset is used to  maintain or runs always same number of pods as mentioned 
-in the manifest file
-- kubectl create -f replicaset.yaml  # to create replicaset
+```
+## Replicaset 
+- it is used to  maintain or runs always same number of pods as mentioned 
+  in the manifest file
 ```
 apiVersion: apps/v1
 kind: ReplicaSet
@@ -211,27 +201,25 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: my-app
+      app: sales-app
   template:
     metadata:
       labels:
-        app: my-app
+        app: sales-app
     spec:
       containers:
       - name: my-container
         image: nginx
 ```
+- kubectl create -f replicaset.yaml  # to create replicaset
 - kubectl get replicaset  --> to list the replicaset
 or
 - kubectl get rs  --> to list the replicaset
 - kubectl delete rs <replicasetname>  -->   to delete the replicaset
 - kubectl delete pod <podname> # To delete pod
 - Note: even if you are deleted pod then automatically it will creae new pods
-  becuase replicaset will make sure  maintain same no of pods as we mentioned in the mainfest file(replicaset    file)
-
-
-kubernetes Deployment :
-------------------
+  becuase replicaset will make sure  maintain same no of pods as we mentioned in the mainfest file
+## kubernetes Deployment :
 kubernetes deployment has some advantages as compared to Replicaset
 - 1) we can increase the pods and decrease the pods count through commnad line
 - 2) we can rollout and rollback the version easly with deployment
@@ -254,41 +242,45 @@ spec:
       - name: mhr-container
         image: nginx
 ```
-## create the deployment and delete the deployment
+## Commands create,get ,descirbe and delete the deployment
 - kubectl create -f deployment.yaml
+- Kubectl get deployments
+- kubectl get all
+- kubectl describe deployment <deployment name>
 - kubect delete -f deployment.yaml
 - kubectl delete deployment <deploymentname>
-# update the deployment with new image version
+## update the deployment with new image version
 - kubectl set image deployment.v1.apps/nginx-deployment mhr-container=nginx:1.16.1
   - or 
 - kubectl set image deployment/nginx-deployment mhr-container=nginx:1.16.1
   - or
 - kubectl edit deployment/nginx-deployment
-
-# To know the status and history of the deployment
+- kubectl apply -f deployment.yaml
+## To know the status and history of the deployment
  - kubectl rollout status deployment/nginx-deployment  # To know the status of deployment
  - kubectl rollout history deployment/nginx-deployment # To know the rollout history
  - kubectl rollout history deployment/nginx-deployment --revision=3  # To know the image version details for the 
    particular revsion
-
-# Roll back to the previous of the deployment
+## Roll back to the previous of the deployment
  - kubectl rollout undo deployment/nginx-deployment  # Roll back to the previous version of the deployment
  - kubectl rollout undo deployment/nginx-deployment --to-revision=2 # Roll back back to the required version of 
    deployment(example version 2)
-# Scale in and scale oot replicas
+## Scale in and scale oot replicas
  - kubectl scale deployment/nginx-deployment --replicas=2
  - kubectl scale deployment/nginx-deployment --replicas=5
-
 ## Deployement in command line
 - kubectl create deployment hello-node --image=k8s.gcr.io/echoserver:1.4
 - kubectl expose deployment hello-node --type=NodePort --port=8080
-
 - Reference doc: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
-
-## Create name space
-- kubectl get namespaces # To list the existing namespaces
-  or
--  kubectl get ns  # To list the existing namespaces
+## Namespace:
+- name space is noting but a virtual cluster
+- namespace is used to isolate the reosuces or application in the k8 cluster
+- Genrall a cluster can divided into number of namespaces as per our requirement
+- by default we have some namespaces in the cluster
+- kubectl get namespaces  --> to list the namespaces
+   or 
+- kubectl get ns ---> --> to list the namespaces
+## create name space in the cluster
 - kubectl create  namespace <namespacename>
    - Ex: kubectl create namespace dev  # create the dev namespace
   or
@@ -323,33 +315,47 @@ spec:
       - name: mhr-container
         image: nginx
 ```
+- kubectl get pods -n dev  # list the pods in the dev namespace
+- kubectl get pods -all-namespaces  # list pods in the all namespaces
 - kubectl delete namespace dev  #delete the dev namespace
    or 
 - kubectl delete -f namespace.yaml # delete the namespace
 
 - kubectl create -f deployment.yaml -n dev  --> deployemt pods in to the dev
-```
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: vamsi-deployement
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: sales-app
-  template:
-    metadata:
-      labels:
-        app: sales-app
-    spec:
-      containers:
-      - name: mhr-container
-        image: nginx
-```
-- kubectl get pods -n dev ---> list the all pods in the dev namespace
-- Reference: https://kubernetes.io/docs/tasks/administer-cluster/namespaces/
+- kubectl config set-context $(kubectl config current-context) --namespace=dev # set dev name space   
+  permaently it we used this command
 ----------------------
+
+## Taint
+ - usually Taints are applying on the nodes
+ - Taint is used to restricts the scheduling the pods on the nodes. nodes are
+   allowing the nodes only when pods are having toleration
+```
+kubectl taint nodes node-name key=value:taint-effct
+kubectl taint nodes node1 app=blue:Noschedule
+```
+
+## Tolerations
+ - Toleration are application on pod
+ - Toleration are used to schdueling pods on the taints nodes
+ ```
+ apiVersion: v1
+ kind: pod
+ metadata:
+   name: sales-app
+ spec:
+   containers:
+   - name: sales-container
+     image:  nginx
+   tolerations:
+   - key: "app"
+     operator: "equal"
+     value: blue
+     effct: Noschedule
+ ```
+ 
+ 
+
 ## create configmap through Imperative mode
 application.properties
 ```

@@ -132,7 +132,36 @@ done
   docker tag ${img} ${repo}/${img}
   docker push ${repo}/${img}
  done
-# script 13 Start and stop the ec2 instances with shell script
+```
+## to check httpd service is running or not if not running then it start the service
+#!/bin/bash
+service=httpd
+status=$(systemctl is-active $service)
+
+if [ $status == active ]
+
+  then
+
+    echo " $service  is up and running"
+else
+   echo " $service is not up and running  so we are starting service"
+
+   systemctl start $service
+
+   if [ "$(systemctl is-active $service)" == "active" ]
+    then
+
+     echo " $service has been successfully started"
+
+   else
+     echo " $service is not starting please check $service logs"
+   fi
+
+fi
+
+```
+
+# script 14 Start and stop the ec2 instances with shell script
 ```
 InstanceID=$1
 State=$2
