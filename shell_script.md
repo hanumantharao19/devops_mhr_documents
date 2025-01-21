@@ -133,7 +133,8 @@ done
   docker push ${repo}/${img}
  done
 ```
-## to check httpd service is running or not if not running then it start the service
+## 13 to check httpd service is running or not if not running then it start the service
+```
 #!/bin/bash
 service=httpd
 status=$(systemctl is-active $service)
@@ -158,7 +159,6 @@ else
    fi
 
 fi
-
 ```
 
 # script 14 Start and stop the ec2 instances with shell script
