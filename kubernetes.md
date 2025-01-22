@@ -122,9 +122,11 @@ aws-iam-authenticator version
 
 ```
 ## Step 5) Install EKSCTL  in linux
+```
 curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
 sudo mv /tmp/eksctl /usr/local/bin
 eksctl version
+```
 ## Step 6) Execute identity command
 ```
 aws sts get-caller-identity
