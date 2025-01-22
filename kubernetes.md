@@ -9,13 +9,12 @@ kubernetes cluster is creating in mutiple ways
 
 1) minikube  --> this we can install in you laptop or in VM
 2) kubeadm ---> this clusater can require mutiple VM (minimun 3 VM) these 
-VM many in AWS ,GCP,Azure and onPrime
+                VM many in AWS ,GCP,Azure and onPrime
 
-
-EKS( elastic Kubernetes server) --> this can provide by AWS
-GKE(google kubernetes Enginee) ---> this can be provide by Google
-AKS ( Azure Kubernernetes service)  --> this can be provided by Azure
-
+- EKS( elastic Kubernetes server) --> this can provide by AWS
+- GKE(google kubernetes Enginee) ---> this can be provide by Google
+- AKS ( Azure Kubernernetes service)  --> this can be provided by Azure
+## follow below steps to create EKS cluster manually in aws
 Step1) a) Select trusted entity type is AWS Service and select use case is EKS cluster
         b) assign AmazonEKSclusterPolicy to the role while creating the rule
 Step2) a)while create EKS cluster assign the above role and select VPC and subnets
@@ -93,6 +92,9 @@ Start the minikube
  - kubectl config view
 ################################
 # create EKS Cluster Using EKSCTL and connect on linux machine
+## prerequisites
+- Frist we need to create a linux server in aws and crete user in aws and provide admin access
+  to that user. create aws access key and secret keys for that user 
 ## step1) Install aws cli in linux
 ```
 sudo dnf install python3-pip
