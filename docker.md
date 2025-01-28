@@ -116,4 +116,61 @@ EXPOSE 80
 ENTRYPOINT [ "/usr/sbin/httpd","-D", "FOREGROUND"]
 ```
 
+```
+FROM ubuntu:latest
+
+# Set the working directory in the image
+WORKDIR /app
+
+# Copy the files from the host file system to the image file system
+COPY . /app
+
+# Install the necessary packages
+RUN apt-get update && apt-get install -y python3 python3-pip
+
+# Set environment variables
+ENV NAME World
+
+# Run a command to start the application
+CMD ["python3", "app.py"]
+
+```
+app.py
+```
+print( this is hanumanthrao)
+```
+
+###
+- docker network ls
+- docker network inspect < containerid>
+- default address for birdge network is : 172.17.0.0/16
+- docker network connect <custom-network> <container name>
+- docker network rm < networkname>
+
+Docekr volumes
+- docker volume ls
+- docker volume create <volume name>
+- docker volume inspect <volume name>
+- docker volume rm <volume name>
+- docker volume prune
+- docker run -d --name app1 --mount  source=hanu target=/data httpd
+- docker run -d --name app1 --volumes-form app1 --name app2 httpd
+- docker run -d --name app1  -v httpd_back:/var/log/http httpd
+- /var/lib/docker/volmunes --> volume are located in this place
+
+Bind mounts
+- mkdir /opt/httpd_data
+- docker run -d --name app1  -v /opt/httpd_data:/var/log/http httpd
+- data is storage in the host file
+
+
+
+
+- /var/lib/docker/volmunes --> volume are located in this place
+
+
+
+
+
+
 
