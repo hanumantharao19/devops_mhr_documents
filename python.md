@@ -117,6 +117,88 @@ for number in range(0,len(numbers)):
     totatl_amount = totatl_amount + numbers[number]
 print(totatl_amount)
 ```
+## 8) find the Farctorial of number 6
+
+```
+num = 6
+factorial = 0
+for i in  range(1,num + 1):
+     factorial += i
+print(factorial)
+
+```
+## 9) find the smalest value  in the list
+
+```
+x = [10,20,40,5,50,60]
+smallest = x[0]
+for z in x:
+    if z < smallest:
+       smallest = z
+       
+print(smallest)
+```
+## 10) find the larget number in the list
+```
+numbers = [10,5,20,40,100,4]
+smallest = numbers[0]
+for a in numbers:
+    if a > smallest:
+      smallest = a
+print(smallest)
+
+```
+## 11) remove the duplicate values
+```
+numbers = [10,20,30,10,20,30,40,100]
+original = []
+for a in numbers:
+   if a not in original:
+       original.append(a)
+print(original)
+```
+
+## 12 ) find the common elments in the two list
+```
+x = [10,20,30,40,50,60]
+y = [50,60,70,80,90,100]
+
+common = []
+for a in x:
+  if a in y:
+     common.append(a)
+print(common)
+
+```
+## 13) Purpose of zip function
+```
+list1 = [2,3,4]
+list2 = [5,6,7]
+for a, b in zip(list1,list2):
+    print(a + b)
+
+```
+
+## 14) add the elments in the two lists
+```
+a = [1, 3, 4, 6, 8]
+b = [4, 5, 6, 2, 10]
+
+c= [ x + y for x, y in zip(a, b)]
+
+print(c)
+```
+## Remove the particular key and value pair for diectionary
+```
+a = {"name": "Nikki", "age": 25, "city": "New York"}
+
+# Remove the key 'name' using dictionary comprehension
+a = {k: v for k, v in a.items() if k != "name"}
+
+print(a)
+```
+
+
 
 ## 9) find elements in list
 ```
@@ -237,6 +319,17 @@ for a  in range(number1,number2+1):
     if a % 2 == 0:
      print(a , end=" ")
 ```
+## Find even and odd numbers in the give number range
+```
+def even_odd_number(numbers):
+   even_numbers = [ x for x in numbers if x % 2 == 0 ]
+   odd_numbers = [ y for y in numbers if y % 2 != 0 ]
+   return even_numbers,odd_numbers
+number_list = list(range(1,21))
+even ,odds = even_odd_number(number_list)
+print(even)
+print(odds)
+````
 ## 18) opend the values
 ```
 list1 = [1, 2, 3]
@@ -353,12 +446,7 @@ for number in range(5,25,5):
     print(number)
 ```
 ## 25) how to use zip function
-```
-list1 = ["hanu","haswi","sras"]
-list2 = ["guntur","usa","hyd"]
-for a in zip(list1,list2):
-    print(a)
-```
+
 ## 26) print the input value by using function
 
 ```

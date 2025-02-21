@@ -176,6 +176,49 @@ then
 fi
 
 ```
+## Script 15 upload the files in to s3 bucket
+
+#!/bin/bash
+
+BUCKET_NAME="your-bucket-name"
+DIRECTORY="your-directory"
+
+for FILE in $DIRECTORY/*
+do
+  aws s3 cp $FILE s3://$BUCKET_NAME/
+done
+
+
+```
+#!/bin/bash
+
+# Threshold percentage for disk usage (e.g., 80%)
+THRESHOLD=80
+
+# Email address to send alerts
+ALERT_EMAIL="admin@example.com"
+
+# List of directories to monitor
+DIRECTORIES=("/home" "/var" "/opt" "/tmp")
+
+# Loop through each directory
+for DIR in "${DIRECTORIES[@]}"; do
+  # Get the disk usage of the directory (in percentage)
+  USAGE=$(df -h "$DIR" | grep -vE '^Filesystem' | awk '{ print $5 }' | sed 's/%//')
+
+  # Check if the usage exceeds the threshold
+  if [ "$USAGE" -ge "$THRESHOLD" ]; then
+    # Print alert to console
+    echo "ALERT: $DIR is $USAGE% full."
+
+    # Send email alert (uncomment the line below to activate)
+    # echo "$DIR has reached $USAGE% usage." | mail -s "Disk Space Alert: $DIR" $ALERT_EMAIL
+  else
+    # Print normal message to console
+    echo "$DIR is $USAGE% full. No alert needed."
+  fi
+done
+```
 
 ## check instances id and start and stop ec2 instances with functions
 ```
@@ -294,15 +337,7 @@ exit $EXIT
 ```
 ## upload files into the bucket
 ```
-#!/bin/bash
 
-BUCKET_NAME="your-bucket-name"
-DIRECTORY="your-directory"
-
-for FILE in $DIRECTORY/*
-do
-  aws s3 cp $FILE s3://$BUCKET_NAME/
-done
 ```
 ## upload the files into bucket and through error if upload is not successfull
 ```
@@ -340,89 +375,16 @@ done
 
 ```
 
-# Replace 'yourfile.txt' with the name of your file
-file="yourfile.txt"
-
-# Check if the file exists
-if [ -e "$file" ]; then
-  # Use a 'for' loop to read the file line by line
-  while IFS= read -r line; do
-    # Process each line here, for example, print it
-    echo "$line"
-  done < "$file"
-else
-  echo "File not found: $file"s
-fi
 
 
-####################
-```
-echo "HELLO"
-```
-```
-read x
-printf "%.3f\n" `echo "$x" | bc -l`
-```
-```
-#!/bin/bash
-read X
-read Y
-if (( $X > $Y ))
-then
-    echo "X is greater than Y"
-fi
 
-if (( $X == $Y))
-then
-    echo "X is equal to Y"
-fi
 
-if(( $X < $Y))
-then
-    echo "X is less than Y"
-fi
-```
-```
-#!/bin/bash
-#Easier way is to do using for loop
-read N
-sum=0
-for ((i=0; i<N; i++));  do
-    read num 
-    sum=$((sum + num))
-done
-avg=$(echo "scale=4; $sum / $N" | bc)
-printf "%0.3f" $avg
 
-```
-```
-#!/bin/bash
-read word
-if [[($word == 'y') || ($word == 'Y')]]
-then
-    echo "YES"
-        elif [[($word == 'n') || ($word == 'N')]]
-        then
-        echo "NO"
-fi
 
-```
 
-```
-#!/bin/bash
-for i in {1..99..2}
-do
-    echo $i    
-done
 
-```
-```
-#!/bin/bash
-for i in {1..50}
-do
-    echo $i
-done
-```
+
+
 
 
 
