@@ -1,4 +1,4 @@
-## Remove the particular key and value pair for diectionary
+## 1) Remove the particular key and value pair for diectionary
 ```
 a = {"name": "Nikki", "age": 25, "city": "New York"}
 

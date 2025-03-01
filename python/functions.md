@@ -1,6 +1,6 @@
 ### functions concept ####
 
-## 26) print the input value by using function
+## 1) print the input value by using function
 
 ```
 def input_number():
@@ -9,7 +9,7 @@ result = input_number()
 print(result)
 print(type(result))
 ```
-## 27) add two numbers 
+## 2) add two numbers 
 ```
 def addition(a,b):
    print("result:", (a+b))
@@ -29,7 +29,7 @@ def sum_of_numbers(num1,num2):
 result = sum_of_numbers(10,20)
 print(result)
 ```
-## 14)  Local and global varaiables
+## 3)  Local and global varaiables
 ```
 a = 100
 b = 50
@@ -42,7 +42,7 @@ def calculation():
 result = calculation()
 print(result)
 ```
-## 18)Find even and odd numbers in the give number range
+## 4)Find even and odd numbers in the give number range
 ```
 def even_odd_number(numbers):
    even_numbers = [ x for x in numbers if x % 2 == 0 ]
@@ -53,7 +53,7 @@ even ,odds = even_odd_number(number_list)
 print(even)
 print(odds)
 ```
-## 28) calculate the salary for one year
+## 5) calculate the salary for one year
 ```
 def salary_of_employee(months):
    return int(input("enter salry per month:"))*months
@@ -61,7 +61,7 @@ total_salary = salary_of_employee(30)
 print(total_salary)
 
 ```
-## 29) multiplication
+## 6) multiplication
 ```
 def multiply_values(list):
     multiplied_values = []
@@ -71,7 +71,7 @@ def multiply_values(list):
 result = multiply_values([10,20,30,40])
 print(result)
 ```
-## 30) print the name and house by calling the main function
+## 7) print the name and house by calling the main function
 
 ```
 def main():

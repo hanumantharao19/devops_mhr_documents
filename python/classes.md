@@ -1,5 +1,5 @@
 
-## 31 how to define the class
+## 1 how to define the class
 ```
 class Student:
       ...
@@ -17,7 +17,7 @@ def get_student():
 if __name__ == "__main__":
     main()
 ```
-## 32 initilating the init constrcuter
+## 2 initilating the init constrcuter
 ```
 class Student:
     def __init__(self,name,house):
@@ -39,7 +39,7 @@ def get_student():
 if __name__ == "__main__":
     main()
 ```
-## 33 initilating the init and str constrcuter
+## 3 initilating the init and str constrcuter
 ```
 class Student:
     def __init__(self,name,house):
@@ -64,7 +64,7 @@ def get_student():
 if __name__ == "__main__":
     main()
 ```
-## 34 initilating the init and str constrcuter and case function
+## 4 initilating the init and str constrcuter and case function
 ```
 class Student:
     def __init__(self,name,house,street):

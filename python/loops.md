@@ -1,5 +1,5 @@
 #### loops concept ########
-## 15) print the letters form the string with loop
+## 1) print the letters form the string with loop
 ```
 name = "hanumantharao"
 for a in name:
@@ -7,14 +7,14 @@ for a in name:
 for a in "ramesh":
     print(a)
 ```
-## 16) print the numbers form the list with loop
+## 2) print the numbers form the list with loop
 ```
 list1 = [1,2,3,4,5,6,7,8]
 
 for x in list1:
     print(x)
 ```
-# 20) how to use inner loops
+# 3) how to use inner loops
 ```
 for x in [1,2,3]:
    for y in [10,20,30]:
@@ -30,7 +30,7 @@ for x in [1,2,3]:
         print(x*y)
 
 ```
-## 17) print the even numbers for the list
+## 4) print the even numbers for the list
 
 ```
 # print even numebrs
@@ -64,31 +64,34 @@ for a  in range(number1,number2+1):
      print(a , end=" ")
 ```
 
-## 24) how to use pass,continue and break in for loops
+## 5) how to use pass,continue and break in for loops
+
+- how to use pass
 ```
-# how to use pass
 x = [1,2,3,4]
 for a in x:
     pass
 print("script complete successfully")
 
-
-#how to use continue
+```
+- how to use continue
+```
 x = [1,2,3,4,5,6,7,8,9,10]
 for a in x:
     if a == 5:
         continue
     print(a)
-
-# how to use break in for loop
+```
+- how to use break in for loop
+```
 x = [1,2,3,4,5,6,7,8,9,10]
 for a in x:
     if a == 6:
         break
     print(a)
-
-# how to use break in while loop
-
+```
+- how to use break in while loop
+```
 x = 0
 while x < 5:
     if x == 2:
@@ -96,7 +99,7 @@ while x < 5:
     print(x)
     x = x + 1
 ```
-### 12) elment is available or not with for loop
+### 6) elment is available or not with for loop
 ```
 list = ["mahesh","hanu","suresh","ramesh"]
 available = ""
@@ -110,7 +113,7 @@ if available:
 else:
     print("Element is not avaialble in the list")
 ```
-## 23) Print the values with while loop
+## 7) Print the values with while loop
 ```
 #while loop will continue to execute a block of code while some condtion reamins ture
 # while condtion:
@@ -130,7 +133,7 @@ else:
     print( "x is not grater than 5")
 ```
 
-## 25) how to use range function
+## 8) how to use range function
 ```
 for number in range(10):
     print(number)
@@ -144,7 +147,7 @@ for number in range(5,25,5):
     print(number)
 ```
 
-## 8) average the values in the list
+## 9) average the values in the list
 ```
 # iterating Lists
 marks = [68,79,81,96,76,99]
@@ -163,7 +166,7 @@ for number in range(0,len(numbers)):
 print(totatl_amount)
 ```
 
-## 9) find the smalest value  in the list
+## 10) find the smalest value  in the list
 
 ```
 x = [10,20,40,5,50,60]
@@ -174,7 +177,7 @@ for z in x:
        
 print(smallest)
 ```
-## 10) find the larget number in the list
+## 11) find the larget number in the list
 ```
 numbers = [10,5,20,40,100,4]
 smallest = numbers[0]
@@ -184,7 +187,7 @@ for a in numbers:
 print(smallest)
 
 ```
-## 11) remove the duplicate values
+## 12) remove the duplicate values
 ```
 numbers = [10,20,30,10,20,30,40,100]
 original = []
@@ -194,7 +197,7 @@ for a in numbers:
 print(original)
 ```
 
-## 12 ) find the common elments in the two list
+## 13) find the common elments in the two list
 ```
 x = [10,20,30,40,50,60]
 y = [50,60,70,80,90,100]
@@ -206,7 +209,7 @@ for a in x:
 print(common)
 
 ```
-## 13) Purpose of zip function
+## 14) Purpose of zip function
 ```
 list1 = [2,3,4]
 list2 = [5,6,7]
@@ -214,7 +217,7 @@ for a, b in zip(list1,list2):
     print(a + b)
 
 ```
-## 14) add the elments in the two lists
+## 15) add the elments in the two lists
 ```
 a = [1, 3, 4, 6, 8]
 b = [4, 5, 6, 2, 10]
@@ -224,7 +227,7 @@ c= [ x + y for x, y in zip(a, b)]
 print(c)
 ```
 
-## 19) add numbers in two lists
+## 16) add numbers in two lists
 ```
 list1 = [1, 2, 3]
 list2 = [4, 5, 6]
@@ -235,13 +238,13 @@ for i in range(len(list1)):
 
 print(result)  # Output: [5, 7, 9]
 ```
-## 21) print the numbers form the tuples with loop
+## 17) print the numbers form the tuples with loop
 ```
 tuples = (1,2,3,4,5,6,7,8,9,10)
 for a in tuples:
     print(a)
 ```
-## 22) Print the numebrs form list with loop
+## 18) Print the numebrs form list with loop
 ```
 list = [(1,2),(3,4),(5,6),(7,8),(9,10)]
 for item in list:

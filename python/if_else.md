@@ -1,7 +1,5 @@
-
-
 ## if, else, and elif ###
-### if condition is Ture ####
+### 1) if condition is Ture ####
 ```
 exam = True
 if exam: 
@@ -10,7 +8,7 @@ else:
     print("i have failed exam")
 
 ```
-## if condtion is False ### 
+## 2) if condtion is False ###
 ```
 exam = False
 if exam: 
@@ -18,7 +16,7 @@ if exam:
 else:
     print("i have failed exam")
 ```
-## 11) if and else
+## 3) if and else
 ```
 list = ["hanu","mahesh","surehs","ramesh"]
 if "hanu" in list:
@@ -27,7 +25,7 @@ else:
     print("Element is  not  available in the list")
 ```
 
-## 13) if ,elif and else
+## 4) if ,elif and else
 ```
 job = input("enter your job" )
 if job == "electrical":
