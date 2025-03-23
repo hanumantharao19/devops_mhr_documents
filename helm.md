@@ -26,13 +26,22 @@ chmod 700 get_helm.sh
  - helm search hub <helmchartname>
 
  - https://artifacthub.io/ # helm chart available in this site
- 
 
-
-
-
-
-   26  helm list -a
-   27  kubectl get service
-   28  kubectl get pods -o wide
+ url "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+  114  unzip awscliv2.zip
+  115  aws --version
+  116  vi /usr/bin/aws
+  117  rm /usr/bin/aws
+  118  rm -f /usr/bin/aws
+  119  ls -lrt
+  120  aws cli
+  121  aws cli --version
+  122  exit
+  123  curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+  124  unzip awscliv2.zip
+  125  sudo ./aws/install
+  126  aws --version
+  127  /usr/local/bin/aws --version
+  128  sudo mv /usr/local/bin/aws /usr/bin/aws
+  129  aws --version
  
