@@ -1,35 +1,13 @@
-Any ip address is 32 bit
+- Any ip address is 32 bit
 - ex: ip 192.168.10.0
 - ex: 8 +8 + 8 +8  =32
 
-Class	Address Range	Subnet masking	Example IP	Leading bits	Max number of networks	Application
-IP Class A	1 to 126	255.0.0.0	1.1.1.1	8	128	Used for large number of hosts.
-IP Class B	128 to 191	255.255.0.0	128.1.1.1	16	16384	Used for medium size network.
-IP Class C	192 to 223	255.255.255.0	192.1.11.	24	2097157	Used for local area network.
-IP Class D	224 to 239	NA	NA	NA	NA	Reserve for multi-tasking.
-IP Class E	240 to 254	NA	NA	NA	NA	This class is reserved for research and Development Purposes.
-
-  
-192.168.30.0/20
-
-2*32 -2*20  = 2*12 = 4094
-
------------------
-
-192.168.20.0/24
-
-
-2*32-2*24  = 2*8  = 256
-
--------
-- 192.168.10.240/28
-  192.168.10.240
-  192.168.10.241
-  192.168.10.242
-
-  192.168.10.255
-
-   2*32 - 2*28  = 2*4  =16
+## Class	Address Range	Subnet masking	Example IP	Leading bits	Max number of networks	Application
+- IP Class A	1 to 126	255.0.0.0	1.1.1.1	8	128	Used for large number of hosts.
+- IP Class B	128 to 191	255.255.0.0	128.1.1.1	16	16384	Used for medium size network.
+- IP Class C	192 to 223	255.255.255.0	192.1.11.	24	2097157	Used for local area network.
+- IP Class D	224 to 239	NA	NA	NA	NA	Reserve for multi-tasking.
+- IP Class E	240 to 254	NA	NA	NA	NA	This class is reserved for research and Development 
 
 ## VPC
 - virtuval private cloud and VPC is regional resource
@@ -51,19 +29,6 @@ IP Class E	240 to 254	NA	NA	NA	NA	This class is reserved for research and Develo
    
   - 192.168.255.0
     192.168.255.255  -256
-------------
-
-## Subnets
-we can create subnets in VPC
-
-192.168.0.0/16  --2*16 =65000 
-
-we can divide the vpc's in differet subnets
-
-192.168.20.0/24  --> dev-hr-public-subnet
-192.168.40.0/24   --qa-hr-subnet
-
-Note : every subnet should associate with one zone
 
 ## types of instances
 --------------
