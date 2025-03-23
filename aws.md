@@ -232,6 +232,28 @@ www.sanyay.com  --s3bucket
 - aws s3 rb s3://mhr-demo-hr-project --force
 
 
+# Connect to RDS Forn EC2 instance
+----------------
+# install mysql to connect RDS database
+```
+sudo yum update -y
+sudo yum install mysql -y
+```
+# connect database and create database
+```
+mysql -h mhr-dev-db.cbgckmmqcz4q.us-east-2.rds.amazonaws.com -u admin -p
+created database devdatabase;
+show databases;
+use devdatabase;
+```
+```
+ CREATE TABLE employee (
+    ->     emp_id INT PRIMARY KEY,
+    ->     emp_name VARCHAR(255) NOT NULL,
+    ->     emp_salary DECIMAL(10, 2),
+    ->     emp_join_date DATE
+    -> );
+```
 
 
 
