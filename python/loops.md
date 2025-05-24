@@ -9,253 +9,113 @@ for a in "ramesh":
 ```
 ## 2) print the numbers form the list with loop
 ```
-list1 = [1,2,3,4,5,6,7,8]
+list = [1,2,3,4,5,6,7,8]
 
-for x in list1:
+for x in list:
     print(x)
 ```
-# 3) how to use inner loops
+# 3) Print even numbers from a predefined list
 ```
-for x in [1,2,3]:
-   for y in [10,20,30]:
-        z = x*y
-        print(z)
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
+for num in numbers:
+    if num % 2 == 0:
+        print(num)
 ```
-or
+# 4) Print even numbers with end=" " for single-line output
 ```
+numbers = [10, 15, 20, 40, 60, 80]
 
-for x in [1,2,3]:
-   for y in [10,20,30]:
-        print(x*y)
+for num in numbers:
+    if num % 2 == 0:
+        print(num, end=" ")
 
+print() 
 ```
-## 4) print the even numbers for the list
+# 5) Print odd numbers from a list (opposite condition)
+```
+numbers = [10, 15, 13, 17, 20, 40, 34, 40]
 
+for num in numbers:
+    if num % 2 != 0:
+        print(num, end=" ")
+
+print()
 ```
-# print even numebrs
-list1 = [1,2,3,4,5,6,7,8,9,10]
-for x in list1:
-    if x % 2 == 0:
-        print(x)
+# 6) Print even numbers from user input range
 ```
-or
+start = int(input("Enter the starting number: "))
+end = int(input("Enter the ending number: "))
+
+for num in range(start, end + 1):
+    if num % 2 == 0:
+        print(num, end=" ")
+
+print()
 ```
-## list the even numbers
-list = [10,15,20,40,60,80]
-for a in list:
+# 7) pass – Placeholder for future code or empty loop body
+```
+numbers = [1, 2, 3, 4]
+
+for a in numbers:
     if a % 2 == 0:
-      print(a, end=" ")
-```
+        pass  #no operation for even numbers (can be replaced later)
+    else:
+        print(f"Odd number: {a}")
 
-or
-```
-list = [10,15,13,17,20,40,34,40]
-for a in list:
-    if a % 2 != 0:
-        print(a ,end=" ")
-```
-or
-```
-number1 = int(input("enter first number"))
-number2 = int(input("enter final number"))
-for a  in range(number1,number2+1):
-    if a % 2 == 0:
-     print(a , end=" ")
-```
-
-## 5) how to use pass,continue and break in for loops
-
-- how to use pass
-```
-x = [1,2,3,4]
-for a in x:
-    pass
-print("script complete successfully")
+print("Loop completed successfully.")
 
 ```
-- how to use continue
+# 8) continue – Skip current iteration and move to next
 ```
-x = [1,2,3,4,5,6,7,8,9,10]
-for a in x:
+numbers = [1,2,3,4,5,6,7,8,9,10]
+for a in numbers:
     if a == 5:
         continue
     print(a)
 ```
-- how to use break in for loop
+# 9) break – Exit the loop immediately
 ```
-x = [1,2,3,4,5,6,7,8,9,10]
-for a in x:
+numbers = [1,2,3,4,5,6,7,8,9,10]
+for a in numbers:
     if a == 6:
         break
     print(a)
 ```
-- how to use break in while loop
-```
-x = 0
-while x < 5:
-    if x == 2:
-     break
-    print(x)
-    x = x + 1
-```
-### 6) elment is available or not with for loop
-```
-list = ["mahesh","hanu","suresh","ramesh"]
-available = ""
-name = "ram"
-for a in list:
-    if a == name:
-       available = True
-       break
-if available:
-    print("Element is avaialble in the list")
-else:
-    print("Element is not avaialble in the list")
-```
-## 7) Print the values with while loop
-```
-#while loop will continue to execute a block of code while some condtion reamins ture
-# while condtion:
-  #do some thing
-# else:
-  # do some thing different
-x = 0
-while x < 5 :
-    print(f'current value of x is {x}')
-    x = x + 1
-
-x = 6
-while x < 5 :
-    print(f'current value of x is {x}')
-    x += 1
-else:
-    print( "x is not grater than 5")
-```
-
-## 8) how to use range function
+# 10) Using range(stop) – prints numbers from 0 to 9
 ```
 for number in range(10):
     print(number)
-
-
-for number in range(5,25):
-    print(number)
-
-
-for number in range(5,25,5):
+```
+# 11) Using range(start, stop) – prints numbers from 5 to 24
+```
+for number in range(5, 25):
     print(number)
 ```
+# 12) Using range(start, stop, step) – prints every 5th number between 5 and 24
+```
+for number in range(5, 25, 5):
+    print(number)
+```
+# 13) range() in reverse
+```
+for number in range(10, 0, -1):
+    print(number)
+```
+# 14) How to Use Inner Loops (Nested Loops)
+for x in [1, 2, 3]:
+    # Inner loop runs for each y
+    for y in [10, 20, 30]:
+        result = x * y
+        print(f"{x} * {y} = {result}")
 
-## 9) average the values in the list
+## 15) create a any table
 ```
-# iterating Lists
-marks = [68,79,81,96,76,99]
-total = 0
-for x in marks:
-    total += x
-    average = total/len(marks)
-print(average)
-```
-Or
-```
-numbers = [10,20,30,40,50,60]
-totatl_amount = 0
-for number in range(0,len(numbers)):
-    totatl_amount = totatl_amount + numbers[number]
-print(totatl_amount)
-```
-
-## 10) find the smalest value  in the list
-
-```
-x = [10,20,40,5,50,60]
-smallest = x[0]
-for z in x:
-    if z < smallest:
-       smallest = z
-       
-print(smallest)
-```
-## 11) find the larget number in the list
-```
-numbers = [10,5,20,40,100,4]
-smallest = numbers[0]
-for a in numbers:
-    if a > smallest:
-      smallest = a
-print(smallest)
-
-```
-## 12) remove the duplicate values
-```
-numbers = [10,20,30,10,20,30,40,100]
-original = []
-for a in numbers:
-   if a not in original:
-       original.append(a)
-print(original)
+table=4
+for a in range(1,11):
+    print(f"{table} x {a} = {table*a}")
 ```
 
-## 13) find the common elments in the two list
-```
-x = [10,20,30,40,50,60]
-y = [50,60,70,80,90,100]
 
-common = []
-for a in x:
-  if a in y:
-     common.append(a)
-print(common)
 
-```
-## 14) Purpose of zip function
-```
-list1 = [2,3,4]
-list2 = [5,6,7]
-for a, b in zip(list1,list2):
-    print(a + b)
 
-```
-## 15) add the elments in the two lists
-```
-a = [1, 3, 4, 6, 8]
-b = [4, 5, 6, 2, 10]
-
-c= [ x + y for x, y in zip(a, b)]
-
-print(c)
-```
-
-## 16) add numbers in two lists
-```
-list1 = [1, 2, 3]
-list2 = [4, 5, 6]
-
-result = []
-for i in range(len(list1)):
-    result.append(list1[i] + list2[i])
-
-print(result)  # Output: [5, 7, 9]
-```
-## 17) print the numbers form the tuples with loop
-```
-tuples = (1,2,3,4,5,6,7,8,9,10)
-for a in tuples:
-    print(a)
-```
-## 18) Print the numebrs form list with loop
-```
-list = [(1,2),(3,4),(5,6),(7,8),(9,10)]
-for item in list:
-    print(item)
-
-for (a,b) in list2:
-    print(a)
-    print(b)
-
-list = [(1,2,11),(3,4,12),(5,6,13),(7,8,14),(9,10,15)]
-for a,b,c in list:
-    print(c)
-
-```

@@ -1,5 +1,25 @@
 ### functions concept ####
+## Positional Arguments with simple print function
+```
+print("Hello", "world")
+```
+## Positional Arguments with function use case
+def greet(name, age):
+    print(f"Hello {name}, you are {age} years old.")
 
+greet("hanu", 30)
+
+## Keyword Arguments with simple print function
+```
+print("I read the whole", end="")
+print("line at one glance", end="!")
+
+```
+## Keyword Arguments with function use case
+def greet(name, age):
+    print(f"Hello {name}, you are {age} years old.")
+
+greet(age=30n,age="hanu")
 ## 1) print the input value by using function
 
 ```
@@ -9,7 +29,7 @@ result = input_number()
 print(result)
 print(type(result))
 ```
-## 2) add two numbers 
+## 2) add two numbers
 ```
 def addition(a,b):
    print("result:", (a+b))
