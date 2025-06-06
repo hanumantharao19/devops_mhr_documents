@@ -1,3 +1,33 @@
+1) Desktop application
+2) web applications
+3) data base applications
+4) for Networking applications
+5) Games
+6) Data Analysis
+7) Machine learning programs
+8) AI
+9) IOT
+
+## features of python
+1) Simple and easy to learn
+2) free ware and open source
+3) high level programing language
+4) platform independent
+5) protability
+6) Dynamically typed
+7) procedure oriented and object oriented language
+8) interpreted
+9) extensible
+10) Embedded
+11) Extensive liabrary
+
+## limitation
+1) performance issue
+2) not used much in mobile applicatons
+
+
+
+
 ## 1) Print a Name in Python
 ```
 print("This is Hanumantharao")
@@ -24,7 +54,7 @@ print(name)
 print(are_coming)
 ```
 
-# 7) Type Checking in Python
+# 4) Type Checking in Python
 ```
 x = 25
 y = "Hello"
