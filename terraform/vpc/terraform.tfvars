@@ -1,2 +1,6 @@
-cidr_blcok_vpc = "192.165.0.0/16"
-cidr_blcok_subnet = "192.165.10.0/24"
+region = "us-east-1"
+vpc_cidr_block = "192.165.0.0/16"
+igw_name = "mhr-dev-igw-new"
+subnet_cidr_block = "192.165.1.0/24"
+subnet_name = "mhr-dev-subnet"
+routetable_name = "mhr-dev-route-table"
