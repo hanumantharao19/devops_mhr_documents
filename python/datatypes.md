@@ -52,7 +52,7 @@
 ```
 print("This is Hanumantharao")
 ```
-# How to Comment in Python
+## How to Comment in Python
 ```
 """
 This is a multi-line comment.
@@ -75,7 +75,7 @@ print(name)
 print(are_coming)
 ```
 
-# Type Checking in Python
+## Type Checking in Python
 ```
 x = 25
 y = "Hello"
@@ -87,7 +87,7 @@ print(type(y))  # <class 'str'>
 print(type(z))  # <class 'float'>
 print(type(a))  # <class 'complex'>
 ```
-# Accessing characters using index
+## Accessing characters using index
 ```
 name = "hanumantharo"
 print(name[0])     # h
