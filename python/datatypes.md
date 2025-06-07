@@ -48,11 +48,11 @@
 | `None`      | Represents no value or null   | `x = None`             |
 
 
-## 1) Print a Name in Python
+## Print a Name in Python
 ```
 print("This is Hanumantharao")
 ```
-# 2) How to Comment in Python
+# How to Comment in Python
 ```
 """
 This is a multi-line comment.
@@ -61,7 +61,7 @@ Location: NRT, Andhra Pradesh
 """
 print("This is Hanu")
 ```
-## 3) Python Data Types
+## Python Data Types
 ```
 age = 20                    # int
 price = 19.23               # float
@@ -75,7 +75,7 @@ print(name)
 print(are_coming)
 ```
 
-# 4) Type Checking in Python
+# Type Checking in Python
 ```
 x = 25
 y = "Hello"
@@ -88,23 +88,29 @@ print(type(z))  # <class 'float'>
 print(type(a))  # <class 'complex'>
 ```
 # Accessing characters using index
+```
 name = "hanumantharo"
 print(name[0])     # h
 print(name[1])     # a
 print(name[4])     # m
 print(name[-1])    # o (last character)
 print(name[-4])    # h (4th character from the end)
+```
 ##  Slicing operation on string
 -  Syntax: sequence[start:stop]
 -  It returns a substring from start to stop-1 index
 - Syntax: sequence[start:stop:step]
+```
 print(name[1:4])    # anu
 print(name[3:6])    # uma
 print(name[1:])     # anumantharo → from index 1 to end
 print(name[:5])     # hanum → from start to index 4
+```
 ## Negative indexing
+```
 print(name[-1:-4])   # '' (empty string because start > stop)
 print(name[-4:-1])   # har → characters from -4 to -2
+```
 
 # Type Casting
 ## int
@@ -145,7 +151,7 @@ print(str(10))
 print(str(10.5))
 print(str(10+20J))
 ```
-## 6) Basic Math Operators
+## Basic Math Operators
 ```
 a = 10
 b = 3
@@ -208,19 +214,19 @@ name = "hanu"
 age = 30
 print(name + " is " + str(age) + " years old.")
 ```
-## 4)  Getting User Input Using input()
+##  Getting User Input Using input()
 ```
 name = input("What is your name? ")
 print("Hello " + name)
 
 ```
-## 4) Convert Data Types
+## Convert Data Types
 ```
 birth_year = input("Enter your birth year: ")
 age = 2025 - int(birth_year)
 print("Your age is:", age)
 ```
-### 5) Add Two Float Numbers from User Input
+## Add Two Float Numbers from User Input
 ```
 first_number = float(input("Enter first number: "))
 second_number = float(input("Enter second number: "))
