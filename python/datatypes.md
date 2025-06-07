@@ -1,3 +1,4 @@
+## Applications of Python
 | S.No | Area                         | Description                                                                 |
 | ---- | ---------------------------- | --------------------------------------------------------------------------- |
 | 1️⃣  | **Desktop Applications**     | GUI apps using tools like Tkinter, PyQt, Kivy                               |
@@ -10,6 +11,7 @@
 | 8️⃣  | **Artificial Intelligence**  | AI apps: speech, vision, chatbots, NLP                                      |
 | 9️⃣  | **IoT (Internet of Things)** | Python is used in Raspberry Pi & microcontroller-based applications         |
 
+## Features of Python
 | No.    | Feature                             | Explanation                                                 |
 | ------ | ----------------------------------- | ----------------------------------------------------------- |
 | 1️⃣    | **Simple and Easy to Learn**        | Python has clean syntax similar to English                  |
@@ -27,6 +29,8 @@
 ## limitation
 1) performance issue
 2) not used much in mobile applicatons
+
+## Python supports various built-in data types:
 
 | Type        | Description                   | Example                |
 | ----------- | ----------------------------- | ---------------------- |
@@ -90,34 +94,34 @@ print(name[1])     # a
 print(name[4])     # m
 print(name[-1])    # o (last character)
 print(name[-4])    # h (4th character from the end)
-# Slicing operation on string
-# Syntax: sequence[start:stop]
-# It returns a substring from start to stop-1 index
-# Syntax: sequence[start:stop:step]
+##  Slicing operation on string
+-  Syntax: sequence[start:stop]
+-  It returns a substring from start to stop-1 index
+- Syntax: sequence[start:stop:step]
 print(name[1:4])    # anu
 print(name[3:6])    # uma
 print(name[1:])     # anumantharo → from index 1 to end
 print(name[:5])     # hanum → from start to index 4
-# Negative indexing
+## Negative indexing
 print(name[-1:-4])   # '' (empty string because start > stop)
 print(name[-4:-1])   # har → characters from -4 to -2
 
 # Type Casting
-# int
+## int
 ```
 print(int(10.5))     # 10 → float to int (decimal truncated)
 print(int("10"))     # 10 → string to int (only if string contains valid int)
 print(int(True))     # 1  → boolean to int (True=1, False=0)
 print(int(10 + 20j)) # ❌ Error → cannot convert complex to int
 ```
-# float
+## float
 ```
 print(float(10))  # int to float
 print(float(10+20j)) # complex to int not possible
 print(float(True)) #    -> boolen to to float
 print(float("10")) # string to float
 ```
-# complex
+## complex
 ```
 print(complex(10)) # int to complex
 print(complex(True)) # boolen to complex
@@ -127,8 +131,7 @@ print(complex(10,20)) # int to complex
 print(complex(True,False)) # boolen to complex
 print(complex(10.5,20.5)) # float to complex
 ```
-
-# boolen
+## boolen
 ```
 print(bool(0.0))
 print(bool(10+20J))
@@ -136,15 +139,12 @@ print(bool(''))
 print(bool("hanu"))
 print(bool(" "))
 ```
-
-# string
+## string
 ```
 print(str(10))
 print(str(10.5))
 print(str(10+20J))
 ```
-
-
 ## 6) Basic Math Operators
 ```
 a = 10
@@ -158,32 +158,31 @@ print("Floor Division:", a // b)
 print("Modulus:", a % b)
 print("Exponent:", a ** b)
 ```
-
-# Using += to Add and Assign
+## Using += to Add and Assign
 ```
 number = 5 
 number += 2 # same as number = number+2
 print(number)
 ```
-# Using -= to Subtract and Assign
+## Using -= to Subtract and Assign
 ```
 balance = 100
 balance -= 25  # same as: balance = balance - 25
 print(balance)
 ```
-# Using *= to Multiply and Assign
+## Using *= to Multiply and Assign
 ```
 points = 10
 points *= 3  # same as: points = points * 3
 print("After *= :", points)  # Output: 30
 ```
-# Using /= to Divide and Assign
+##  Using /= to Divide and Assign
 ```
 total = 20
 total /= 4  # same as: total = total / 4
 print(total)  # Output: 5.0
 ```
-# Using //=, %=, **=
+## Using //=, %=, **=
 ```
 num = 10
 num //= 3  # Floor division
@@ -197,7 +196,7 @@ num = 2
 num **= 3  # Exponentiation
 print("After **= :", num)  # Output: 8
 ```
-# addition of strings
+## addition of strings
 ```
 print("hanu" + "medikonda")
 print("hanu" + str(30))
@@ -230,7 +229,7 @@ print("Sum result is: " + str(sum_result))
 #Note: input function always return string
 ```
 
-# Relational Operators
+## Relational Operators
 ```
 a = 10
 b = 20
