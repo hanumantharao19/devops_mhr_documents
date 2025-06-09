@@ -1,3 +1,3 @@
-print("hanumantha", end="")
-print("medikonda",end="!")
-print("I am cloud and devops enginer")
+import re
+l= re.sub('\d','#','1hanu4medikond')
+print(l)
