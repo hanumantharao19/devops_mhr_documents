@@ -61,6 +61,7 @@ sudo systemctl enable docker
 sudo usermod -aG docker $USER
 newgrp docker
 ```
+------------------------------------------------------------------------------
 ## docker commands
 1. how to search a docker image in hub.docker.com
 ```sh
