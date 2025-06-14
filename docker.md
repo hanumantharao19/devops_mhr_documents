@@ -21,7 +21,7 @@ sudo apt update
 sudo apt upgrade -y
 ```
 - Install Required Prerequisite Packages
-``
+```
 sudo apt install -y \
     ca-certificates \
     curl \
