@@ -117,3 +117,29 @@ mysql -u devuser -p -h 127.0.0.1
 - Google automatically sets up Private Service Access
 - Your VPC must contain a dedicated IP range for this connection
 ![alt text](image1.png)
+
+- Steps to Connect to Cloud SQL using Password from Secret Manager
+- 1. Store the password
+```
+echo -n 'YourStrongPassword123' | gcloud secrets create db-password \
+  --replication-policy="automatic" --data-file=-
+```
+# Give permission to your compute resource
+```
+gcloud secrets add-iam-policy-binding db-password \
+  --member="serviceAccount:YOUR-SERVICE-ACCOUNT" \
+  --role="roles/secretmanager.secretAccessor"
+```
+- on GCE VM Retrieve password
+```
+DB_PASS=$(gcloud secrets versions access latest --secret=db-password)
+```
+# Connect to MySQL
+```
+mysql -h <INSTANCE_IP> -u devuser -p"$DB_PASS"
+```
+# On your laptop (with gcloud auth login)
+```
+- You’ll get the plain-text password printed in the terminal → use it in tools like:
+- MySQL Workbench
+- CLI: mysql -h ... -u ... -p
