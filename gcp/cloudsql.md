@@ -48,17 +48,13 @@ Fill in:
 ```bash
 mysql -u devuser -p -h <CLOUD_SQL_PUBLIC_IP>
 
-```
--  Or use MySQL Workbench:
+✅ Or use **MySQL Workbench**:
 
- - Host: <CLOUD_SQL_PUBLIC_IP>
+- **Host**: `<CLOUD_SQL_PUBLIC_IP>`
+- **Port**: `3306`
+- **User**: `devuser`
+- **Password**: `your-password`
 
-- Port: 3306
-
-- User: devuser
-
-- Password: your password
-```
 
 ##  From CentOS (GCP VM)
 - Install MySQL client
