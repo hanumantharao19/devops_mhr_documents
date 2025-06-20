@@ -116,4 +116,4 @@ mysql -u devuser -p -h 127.0.0.1
 - Cloud SQL is in Google’s VPC
 - Google automatically sets up Private Service Access
 - Your VPC must contain a dedicated IP range for this connection
-![alt text](image.png)
+![alt text](image1.png)
