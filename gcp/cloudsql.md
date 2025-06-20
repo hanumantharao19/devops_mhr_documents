@@ -111,4 +111,9 @@ step 4 Step 4: Connect via MySQL
 ```
 mysql -u devuser -p -h 127.0.0.1
 ```
+## Cloud sql private instance
+- Your VM is in your own VPC
+- Cloud SQL is in Google’s VPC
+- Google automatically sets up Private Service Access
+- Your VPC must contain a dedicated IP range for this connection
 ![alt text](image.png)
