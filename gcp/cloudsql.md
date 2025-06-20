@@ -44,8 +44,6 @@ Fill in:
 ## 🔹 Option A: Connect via Public IP (Simple but Less Secure)
 
 ### 🪟 From Windows
-
-```bash
 mysql -u devuser -p -h <CLOUD_SQL_PUBLIC_IP>
 
 ✅ Or use **MySQL Workbench**:
@@ -58,7 +56,7 @@ mysql -u devuser -p -h <CLOUD_SQL_PUBLIC_IP>
 
 ##  From CentOS (GCP VM)
 - Install MySQL client
-```
+
 sudo yum install -y mysql
 ```
 - connect to mysql db
