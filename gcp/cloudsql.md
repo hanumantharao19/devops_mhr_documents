@@ -96,11 +96,9 @@ wget https://dl.google.com/cloudsql/cloud_sql_proxy.linux.amd64 -O cloud-sql-pro
 chmod +x cloud-sql-proxy
 ```
 Step 2: Authenticate
-```
-gcloud auth application-default login
-``
+- gcloud auth application-default login
 or
-use a service account JSON key (if running on a CI/CD system)
+- use a service account JSON key (if running on a CI/CD system)
 ```
 ./cloud-sql-proxy project-id:region:instance-name \
   --credentials-file=my-service-account.json
