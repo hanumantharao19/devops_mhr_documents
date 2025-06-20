@@ -56,7 +56,7 @@ mysql -u devuser -p -h <CLOUD_SQL_PUBLIC_IP>
 - **Password**: `your-password`
 
 
-# From CentOS (GCP VM)
+## From CentOS (GCP VM)
 
 - Install MySQL client
 ```
@@ -90,7 +90,7 @@ cloud-sql-proxy.exe project-id:region:instance-name
 ```
 mysql -u devuser -p -h 127.0.0.1
 ```
-# From GCP CentOS VM
+## From GCP CentOS VM
 ```
 wget https://dl.google.com/cloudsql/cloud_sql_proxy.linux.amd64 -O cloud-sql-proxy
 chmod +x cloud-sql-proxy
