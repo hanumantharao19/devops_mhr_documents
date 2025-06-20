@@ -111,5 +111,4 @@ step 4 Step 4: Connect via MySQL
 ```
 mysql -u devuser -p -h 127.0.0.1
 ```
-
 ![alt text](image.png)
