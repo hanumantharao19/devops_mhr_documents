@@ -143,3 +143,29 @@ mysql -h <INSTANCE_IP> -u devuser -p"$DB_PASS"
 - You’ll get the plain-text password printed in the terminal → use it in tools like:
 - MySQL Workbench
 - CLI: mysql -h ... -u ... -p
+
+                        +-----------------------------+
+                        |        Internet             |
+                        +-------------+---------------+
+                                      |
+                                      | (HTTP - Port 80)
+                                      |
+                        +-------------v---------------+
+                        |   External IP of VM         |
+                        +-------------+---------------+
+                                      |
+                           GCP Firewall Rule (Allow HTTP)
+                                      |
+                        +-------------v---------------+
+                        |      VM Instance (CentOS)   |
+                        |  - Web Server Installed     |
+                        +-------------+---------------+
+                                      |
+                        +-------------v---------------+
+                        |       Subnet (CIDR /24)     |
+                        +-------------+---------------+
+                                      |
+                        +-------------v---------------+
+                        |     VPC Network (Custom)    |
+                        +-----------------------------+
+
