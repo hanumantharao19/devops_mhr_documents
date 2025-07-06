@@ -50,10 +50,6 @@ gcloud compute instances list
 ```
 gcloud compute instances create demo-server --machine-type e2-medium --zone=us-central1-a
 ```
-- Deploy a web server and connect it to a VM.
-```
-  sudo apt-get update
-  sudo apt-get install -y nginx
 - Create compute instance
 ```
 gcloud compute instances create centos-vm \
@@ -65,8 +61,6 @@ gcloud compute instances create centos-vm \
   --tags=http-server,https-server
 
 ```
-
-
 - stop compute instance
 ```
 gcloud compute instances stop dev-server --zone=us-central1-a --project=<projectid>
