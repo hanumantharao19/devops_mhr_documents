@@ -19,6 +19,18 @@ gcloud auth login
 ```
 gcloud config list
 ```
+- List the regions in the google cloud
+```
+gcloud compute regions list
+```
+- list the zones in the google cloud
+```
+gcloud compute zones list
+```
+- list the zone in the particular region
+```
+gcloud compute zones list --filter="region:( us-east1)"
+```
 - Define a property (like compute/zone) for the current configuration
 ```
 gcloud config set project <PROJECT_ID>
@@ -30,12 +42,16 @@ gcloud config unset compute/region
 gcloud config unset compute/zone 
 ```
 - List all VM instances in a project.
+# compute instances
 ```
 gcloud compute instances list
 ```
+- create compute instance 
+```
+gcloud compute instances create gcelab2 --machine-type e2-medium --zone=us-central1-a
+```
 - Create compute instance
 ```
-gcloud compute instances create dev-server --project=<projectid> --zone=us-central1-a --machine-type=e2-micro --imagefamily=debian-11 --image-project=debian-cloud
 ```
 - stop compute instance
 ```
@@ -45,6 +61,7 @@ gcloud compute instances stop dev-server --zone=us-central1-a --project=<project
 ```
 gcloud compute instances stop dev-server --zone=us-central1-a --project=<projectid>
 ```
+# service accounts
 - create service service account
 ```
 gcloud iam service-accounts create mhr-dev --description=mhr-dev-account --display-name="dev svc account" --project=<projectid>
