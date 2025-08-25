@@ -114,7 +114,26 @@ for x in [1, 2, 3]:
 table=4
 for a in range(1,11):
     print(f"{table} x {a} = {table*a}")
+
 ```
+# 16) separate even number in one list and odd number in one list
+```
+numbers = [10, 20, 35, 45, 55, 60]
+
+even_numbers = []
+odd_numbers = []
+
+for a in numbers:
+    if a % 2 != 0:   # odd
+        odd_numbers.append(a)
+    else:            # even
+        even_numbers.append(a)
+
+print("Even numbers:", even_numbers)
+print("Odd numbers:", odd_numbers)
+
+```
+
 
 
 
